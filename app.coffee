@@ -14,7 +14,7 @@ lost = require 'lost'
 i18n = require 'roots-i18n'
 
 module.exports =
-  ignores: ['readme.md', '**/layout.*', '**/_*', '.gitignore', 'ship.*conf']
+  ignores: ['readme.md', '**/layout.*', '**/_*', '.gitignore', 'ship.*conf', 'i18n']
 
   extensions: [
     js_pipeline(files: 'assets/js/*.coffee'),
