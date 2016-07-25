@@ -1,16 +1,70 @@
 extends layout
 
 block content
-  include partials/_navigation.jade
-  
+  // include partials/_navigation.jade
   h3 Welcome to roots!
   :marked
     Find tutorials and documentation at http://roots.cx : )
   // test content
   p 
     | You need to sit down and sketch more fucking ideas because 
-    | stalking your ex on facebook isn’t going to get you anywhere. 
+    | stalking your ex on 
+    | facebook
+    | isn’t going to get you anywhere. 
     | If you’re not being fucking honest with 
-    
-  h3 {{ landing.hero.title }}
-  div {{ landing.hero.subtitle}}
+    a(href='#') link me mother.
+  address
+    | Bellermannstr 17A, 13357 Berlin
+  p
+    | Dedicate yourself to lifelong fucking learning. 
+    abbr(title="World Health Organization") Don’t worry about what other people fucking think. 
+    | Form follows fucking function. Never let your guard down by thinking you’re fucking good enough. 
+    | Design is all about fucking relationships—the relationship of form and content, the relationship of elements, the relationship of designer and user.
+  
+  dl
+    dt Coffee
+    dd Black hot drink
+    dt Milk
+    dd White cold drink
+  ul
+    li List Item
+    li List Item
+    li List Item
+  ol
+    li List Item
+    li List Item
+    li List Item
+  fieldset
+    legend Newsletter
+    form
+      label(for="f-name") Name
+      input(type="text" id="f-name" required="")
+      label(for="f-email") Email
+      input(type="email" id="f-email" required="")
+      button Submit      
+  table
+    thead
+      tr
+        th City
+        th State
+        th Country
+      
+    tbody
+      tr
+        td New York City
+        td NY
+        td US
+      tr
+        td Los Angeles
+        td CA
+        td USA<
+      tr
+        td Ashland
+        td KY
+        td USA
+
+  div.u-textCenter
+    h6 {{ landing.hero.title }}
+    div {{ landing.hero.subtitle}}
+
+  
