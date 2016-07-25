@@ -1,0 +1,532 @@
+/* @define Typography */
+
+/* DCGY variables */
+
+/* blacks */
+$dcgy-color-black ?= #000000
+
+$dcgy-color-black-opacity-primary ?= 0.67 // 0.87
+$dcgy-color-black-opacity-secondary ?= 0.42 //0.54
+$dcgy-color-black-opacity-hint ?= 0.30 //0.38
+$dcgy-color-black-opacity-disabled ?= $dcgy-color-black-opacity-hint
+$dcgy-color-black-opacity-divider ?= 0.10 //0.12
+
+$dcgy-color-black-primary ?= rgba(0, 0, 0, $dcgy-color-black-opacity-primary);
+$dcgy-color-black-secondary ?= rgba(0, 0, 0, $dcgy-color-black-opacity-secondary);
+$dcgy-color-black-hint  ?= rgba(0, 0, 0, $dcgy-color-black-opacity-hint);
+$dcgy-color-black-disabled ?= $dcgy-color-black-hint
+$dcgy-color-black-divider ?= rgba(0, 0, 0, $dcgy-color-black-opacity-divider);
+
+$dcgy-color-black-primary-hex ?= #545454
+$dcgy-color-black-secondary-hex ?= #949494
+$dcgy-color-black-hint-hex ?= #B2B2B2
+$dcgy-color-black-disabled-hex ?= $dcgy-color-black-hint-hex
+$dcgy-color-black-divider-hex ?= #E5E5E5
+
+/* whites */
+$dcgy-color-white ?= #FFFFF
+
+$dcgy-color-white-opacity-primary = 1
+$dcgy-color-white-opacity-secondary = 0.7
+$dcgy-color-black-opacity-hint = 0.5
+$dcgy-color-black-opacity-disabled = $type-opacity-hint
+$dcgy-color-black-opacity-divider = 0.12
+
+$dcgy-color-white-primary ?= rgba(255, 255, 255, $dcgy-color-white-opacity-primary);
+$dcgy-color-white-secondary ?= rgba(255, 255, 255, $dcgy-color-white-opacity-secondary);
+$dcgy-color-white-hint ?= rgba(255, 255, 255, $dcgy-color-black-opacity-hint);
+$dcgy-color-white-disabled ?= $dcgy-color-white-hint
+$dcgy-color-white-divider ?= rgba(255, 255, 255, $dcgy-color-black-opacity-divider);
+
+/* Sans-serif */
+$calibri ?= 'Calibri', 'Candara', 'Segoe', 'Segoe UI', 'Optima', 'Arial', 'sans-serif'
+$candara ?= 'Candara', 'Calibri', 'Segoe', 'Segoe UI', 'Optima', 'Arial', 'sans-serif'
+$courier ?= 'Courier New', 'Courier', 'Lucida Sans Typewriter', 'Lucida Typewriter', 'monospace'
+$franklin ?= 'Franklin Gothic Medium', 'Arial', 'sans-serif'
+$futura ?= 'Futura', 'Trebuchet MS', 'Arial', 'sans-serif'
+$geneva ?= 'Geneva', 'Tahoma', 'Verdana', 'sans-serif'
+$gill-sans ?= 'Gill Sans', 'Gill Sans MT', 'Calibri', 'sans-serif'
+$helvetica ?= 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'
+$lucida-grande ?= 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Geneva', 'Verdana', 'sans-serif'
+$optima ?= 'Optima', 'Segoe', 'Segoe UI', 'Candara', 'Calibri', 'Arial', 'sans-serif'
+$segoe ?= 'Segoe', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'
+$tahoma ?= 'Tahoma', 'Geneva', 'Verdana', 'sans-serif'
+$trebuchet ?= 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Tahoma', 'sans-serif'
+$verdana ?= 'Verdana', 'Geneva', 'sans-serif'
+
+/* Serif */
+$antiqua = 'Book Antiqua', 'Palatino', 'Palatino Linotype', 'Palatino LT STD', 'Georgia', 'serif'
+$baskerville = 'Baskerville', 'Baskerville old face', 'Hoefler Text', 'Garamond', 'Times New Roman', 'serif'
+$bodoni = 'Bodoni MT', 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', 'serif'
+$cambria = 'Cambria', 'Georgia', 'serif'
+$caslon = 'Big Caslon', 'Book Antiqua', 'Palatino Linotype', 'Georgia', 'serif'
+$constantia = 'Constantia', 'Palatino', 'Palatino Linotype', 'Palatino LT STD', 'Georgia', 'serif'
+$didot = 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', 'serif'
+$garamond = 'Garamond', 'Baskerville', 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', 'serif'
+$goudy = 'Goudy Old Style', 'Garamond', 'Big Caslon', 'Times New Roman', 'serif'
+$hoefler = 'Hoefler Text', 'Baskerville old face', 'Garamond', 'Times New Roman', 'serif'
+$lucida-bright = 'Lucida Bright', 'Georgia', 'serif'
+$palatino = 'Palatino', 'Palatino Linotype', 'Palatino LT STD', "Book Antiqua", 'Georgia', 'serif'
+
+/* system fonts */
+$system-fonts ?= -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+/* Custom font stacks */
+$roboto = Roboto, $system-fonts
+$roboto-medium = Roboto-Medium, $system-fonts
+$roboto-light = Roboto-Light, $system-fonts
+
+/* Typography variables mapping*/
+
+/* base */
+$type-base-font-size = 100%;
+$type-line-height-ratio = 1.5 //line-height-ratio = 1.5
+//$heading-ratio = $golden
+
+/* body */
+$type-body-font = $roboto // $body-font = $roboto, $system-fonts
+$type-body-font-weight = 400
+$type-body-color = $dcgy-color-black-primary-hex; // $body-color = #212121 //#666
+$type-link-color = #3CC76A
+
+/* headings */
+$type-heading-font = $roboto; // $heading-font = $helvetica
+$type-heading-font-weight = 400;
+$type-heading-color = $dcgy-color-black-secondary-hex; // $heading-color = #111
+
+/* Helpers */
+
+/**
+ * Creates a baseline grid based off your $type-line-height-ratio to help visualize
+ * your vertical rhythm grid. You can offset the grid by negative or positive
+ * pixels to line it up perfectly with the bottom of your text.
+ *
+ * @param {color} [$color=black] - A color to be lightened and used as the color for the grid.
+ * @param {number} [$px-offset=false] - A positive or negative number of pixels
+ * to offset the grid by. Useful for lining the bottom of the gridlines up with your text.
+ *
+ * @example
+ *   grid-overlay(blue, 2)
+ */
+grid-overlay($color = black, $px-offset = false)
+  body
+    background: linear-gradient(to top, rgba($color, 10%) 5%, white 5%)
+    background-size: 100% ($type-line-height-ratio )em
+    if $px-offset
+      background-position: 0 unit($px-offset, 'px')
+/**
+ * Returns a "vertical unit". Useful for specifying the height and margins of
+ * non-text elements like images and such.
+ *
+ * @param {number} [$units=1] - Number of units. Accepts floated numbers as well.
+ * @param {number} [$px-offset=false] - A positive or negative number of pixels
+ * to offset the grid by. Useful for lining the bottom of the gridlines up with
+ * your text. Since this doesn't compute a literal pixel you may need to use a
+ * floated number (multiples of .25 work well) to keep your rhythm on track.
+ *
+ * @example
+ *   img
+ *     padding-top vr-block(5.25, .5)
+ */
+
+vr-block($units = 1, $px-offset = false)
+  if $px-offset
+    return ( (($type-line-height-ratio * $type-base-font-size) / ($type-base-font-size / 2)) * ($units / 2) * (1 + ($px-offset / $type-base-font-size)) )em
+  else
+    return ( (($type-line-height-ratio * $type-base-font-size) / ($type-base-font-size / 2)) * ($units / 2) )em
+
+/* Typography Mixins */
+
+type-reset()
+  margin: 0
+  padding: 0
+
+type-block()
+  // TODO: Mixin for base-spacing-unit bsu()
+  //        => bsu(3, inrem) = 1 rem or bsu(3, inpx) = 24px
+  // NOTE OLD: margin-bottom: ($type-line-height-ratio)em; // 1.5em
+  margin-bottom: 24px;
+  margin-bottom: ($type-line-height-ratio)rem; // 1.5rem
+
+apply-font($font = $system-fonts, $weight = false, $style = false)
+  font-family: $font
+  if $weight
+    font-weight: $weight;
+  if $style
+    font-style: $style
+
+type-html($color = $type-body-color, $opacity = false)
+  apply-font()
+  color: $color
+  font-size: $type-base-font-size // 16px
+  line-height: ($type-line-height-ratio)em // 1,5 = 24px base line height
+
+  if $opacity
+    opacity: $opacity; // 0.87
+
+type-body = type-html
+type-p = type-html
+
+type-display($color = $type-heading-color, $opacity = false)
+  apply-font($system-fonts, $type-body-font-weight)
+  clear: both
+  color: $color;
+
+  if $opacity
+    opacity: $opacity; // 0.54
+
+
+type-display4()
+  /* overwrite settings via type-display */
+  font-weight: 300;
+
+  font-size: 112px;
+  font-size: 7rem;
+  letter-spacing: -0.04em;
+  line-height: 1;
+
+type-display3()
+  font-size: 56px;
+  font-size: 3.5rem;
+  letter-spacing: -0.02em;
+  line-height: (72 / 56);
+
+type-display2()
+  font-size: 45px;
+  font-size: 2.8125rem;
+  line-height: (48 / 45);
+
+type-display1()
+  font-size: 34px;
+  font-size: 2.125rem;
+  line-height: (40 / 34);
+
+type-headline()
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: (32 / 24);
+
+type-title()
+  font-size: 20px;
+  font-size: 1.25rem;
+  // overwrite settings of type-display
+  font-weight: 500
+  letter-spacing: 0.02em;
+  line-height: 1;
+
+type-subhead2()
+  font-size: 16px;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  line-height: (28 / 16);
+
+type-subhead1()
+  font-size: 16px;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  line-height: (24 / 16);
+
+type-body2()
+  font-size: 14px;
+  font-size: 0.875rem;
+  letter-spacing: 0;
+  line-height: (24 / 14);
+
+type-body1()
+  font-size: 14px;
+  font-size: 0.875rem; // 14px
+  letter-spacing: 0;
+  line-height: (20 / 14)// 1.25rem // 20px
+
+type-menu()
+  font-size: 14px;
+  font-size: 0.875rem// 14px
+  /* overwrite settings of type-html */
+  font-weight: 500
+  letter-spacing: 0;
+  line-height: 1;
+
+type-caption()
+  font-size: 12px;
+  font-size: 0.75rem
+  letter-spacing: 0;
+  line-height: 1;
+
+type-blockquote()
+  /* overwrite settings of type-html */
+  apply-font($system-fonts, 300, italic)
+
+  font-size: 1.5rem; // 24px
+  line-height: (32 / 24); // 2rem //32px
+  letter-spacing: 0.08em;
+  margin-bottom: 1em;
+  position: relative;
+
+  &:before
+    position: absolute;
+    left: -0.5em;
+    content: '“';
+
+  &:after
+    content: '”';
+    margin-left: -0.05em;
+
+  //cite
+    //display: block;
+    //font-style: normal;
+
+type-pre()
+  padding: vr-block(.5) // 12px
+  margin-bottom: vr-block(1) // 24px
+  code
+    padding: 0
+
+type-code()
+  font-family: $monospace;
+  padding: ($type-line-height-ratio * .05)em ($type-line-height-ratio * .15)em;
+  line-height: 0;
+
+type-abbr()
+  border-bottom: 1px dotted currentColor
+  cursor: help
+  text-decoration: none;
+
+type-dt()
+  // color: $type-heading-color
+  font-weight: 500;
+
+type-fieldset()
+  padding: vr-block(.5) vr-block() vr-block(); // 0.75em 1.5em 1.5em;
+  border: 1px solid $dcgy-color-black-divider-hex;
+  max-width: 100%;
+  margin-bottom: vr-block((4/3)); // 1.5em
+
+  /* button, input[type='submit']
+    // margin-bottom: 0; */
+
+type-legend()
+  color: $type-heading-color
+  font-weight: 500;
+
+type-label()
+  display: block
+  padding-bottom: vr-block((1/6))
+  margin-bottom: vr-block(-(1/6))
+
+type-input()
+  display: block;
+  max-width: 100%;
+  padding: vr-block(.25)
+  //font-size: 1rem; // 16px
+  margin-bottom: vr-block((2/3)) //16px
+
+type-button()
+  type-menu()
+  text-transform: uppercase;
+  display: block
+  cursor: pointer
+  padding: (11 / 14)em;
+  margin: (6 / 14)em;
+
+type-table()
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin-bottom: vr-block((4/3)) // 16px
+
+type-th()
+  text-align: left
+  color: $type-heading-color;
+
+  padding: vr-block((1/3)) vr-block(0.5); // 4px 8px
+
+type-td()
+  padding: vr-block((1/3)) vr-block(0.5); // 4px 8px
+
+// type-icon()
+//   font-family: 'Material Icons';
+//   font-weight: normal;
+//   font-style: normal;
+//   font-size: 24px;
+//   line-height: 1;
+//   letter-spacing: normal;
+//   text-transform: none;
+//   display: inline-block;
+//   word-wrap: normal;
+//   font-feature-settings: 'liga';
+//   -webkit-font-smoothing: antialiased;
+
+
+/**
+ * The Typographic Reset. This is where the Typeography module goes through
+ * every markup element and styles it.
+ *
+ * @example
+ *   type-styleElements()
+ */
+
+type-styleElements()
+
+  html
+    type-html()
+  html.fonts-loaded
+    font-family: $type-body-font;
+  body
+    max-width: 1008px
+    margin: auto;
+
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td
+    type-reset()
+
+  p, blockquote, pre,
+  address,
+  dl, ol, ul,
+  table
+    type-block()
+
+  //p:last-of-type
+    //margin-bottom: 0;
+
+  h1, h2, h3, h4, h5, h6
+    type-display()
+
+  .fonts-loaded
+    h1, h2, h3, h4
+      font-family: $type-heading-font;
+    h5, h6
+      font-family: $roboto-medium
+      font-weight: 500
+
+  h1
+    type-display3()
+    //margin-top: 24px;
+    //margin-top: 1.5rem;
+    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
+
+  h2
+    type-display2()
+    //margin-top: 24px;
+    //margin-top: 1.5rem;
+    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
+
+  h3
+    type-display1()
+    //margin-top: 24px;
+    //margin-top: 1.5rem;
+    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
+
+  h4
+    type-headline()
+    //margin-top: 24px;
+    //margin-top: 1.5rem;
+    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
+
+  h5
+    type-title()
+    //margin-top: 24px;
+    //margin-top: 1.5rem;
+    margin-bottom: 16px;
+    margin-bottom: 1rem;
+
+  h6
+    type-subhead1()
+    color: $type-body-color
+    font-weight: 500;
+    //margin-top: 24px;
+    //margin-top: 1.5rem;
+    margin-bottom: 16px;
+    margin-bottom: 1rem;
+
+  a
+    color: $type-link-color
+  .fonts-loaded a
+     apply-font($roboto-medium, 500)
+
+   mark
+    background-color: #f4ff81;
+
+  dt {
+    font-weight: 700;
+  }
+
+  address {
+    type-caption();
+    font-style: normal;
+  }
+
+  blockquote
+    type-blockquote()
+  .fonts-loaded blockquote
+    font-family: $roboto-light
+
+  pre
+    type-pre()
+
+  code
+    type-code()
+
+  big, small, sub, sup
+    line-height: 0
+
+  abbr, acronym
+    &[title]
+      type-abbr()
+
+  dt
+    type-dt()
+  .fonts-loaded dt
+    font-family: $roboto-medium
+
+  // ul
+  //   padding-left: 1.1em
+  //   list-style: disc;
+
+  // ol
+  //   padding-left: 1.4em
+  //   list-style: decimal;
+
+  fieldset
+    type-fieldset()
+
+  legend
+    type-legend()
+  .fonts-loaded legend
+    apply-font($roboto-medium, 500)
+
+  label
+    type-label()
+
+  input[type="text"], input[type="email"], input[type="password"], textarea
+    type-input()
+
+  input[type="submit"], button
+    type-button()
+  .fonts-loaded
+    & input[type="submit"],
+    & button
+      apply-font($roboto-medium, 500)
+
+  table
+    type-table()
+
+  th
+    type-th()
+  .fonts-loaded th
+    apply-font($roboto-medium, 500)
+
+  td
+    type-td()
+
+type-styleElements()

@@ -1,27 +1,40 @@
+/* Load Normalize */
 @css{
   @import 'normalize.css';
+}
+
+/* Load global SUIT Css packages */
+@css{
   @import 'suitcss-base';
   @import 'suitcss-utils';
   @import 'suitcss-components';
 }
 
-:root
-  --Grid-gutter-size: 28px
+/* Load settings */
+@import './settings';
 
-//@import 'toto.css'
+/* Common  styles */
+@import './components/base';
 
+/* Components */
+@import './components/typography';
 
-//@import '_settings'
-//normalize-css()
+/* Spage to define some global vatialbel (maybe later) */
+//:root
+//  --Grid-gutter-size: 28px;
+
+/* Apply base styles */
+
 //base()
 
-body
-  //padding: 50px
-  lost-center: 980px
+
+//padding: 50px
+//lost-center: 980px
 .testing
   height: var(--Grid-gutter-size)
 
 
 .Navigation
   height: 80px
-  background-color: grey
+  //background-color: blue;
+  background-color: var(--color-faint-gray)
