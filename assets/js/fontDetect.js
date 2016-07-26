@@ -3,19 +3,25 @@
 
   // Optimization for Repeat Views
   if(sessionStorage.foutFontsLoaded) {
-    console.log('Font Family Roboto (regular meduum and light) already loaded => returning');
+    console.log('Font Family Roboto (Regular, Medium & Light) already loaded => returning');
   	document.documentElement.className += " fonts-loaded";
   	return;
   }
 
-  var fontA = new FontFaceObserver('Roboto');
-  var fontB = new FontFaceObserver('Roboto-Light');
-  var fontC = new FontFaceObserver('Roboto-Medium');
+  var roboto = new FontFaceObserver('Roboto');
+  var robotoLight = new FontFaceObserver('Roboto', { weight: 300 });
+  var RobotoMedium = new FontFaceObserver('Roboto', { weight: 500 });
 
-  Promise.all([fontA.load(), fontB.load(), fontC.load()]).then(function () {
-    console.log('Font Family Roboto (regular meduum and light) have loaded');
+  Promise.all([
+    roboto.load(),
+    robotoLight.load(),
+    RobotoMedium.load()
+  ], 3000).then(function () {
+    console.log('Font Family Roboto (Regular, Medium & Light) have loaded');
     document.documentElement.className += " fonts-loaded";
     //Optimization for Repeat Views
     sessionStorage.foutFontsLoaded = true;
+  }, function () {
+    console.log('Font Roboto (Regular, Medium & Light) is not available after waiting 3 seconds');
   });
 })();
