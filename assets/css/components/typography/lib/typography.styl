@@ -73,8 +73,6 @@ $system-fonts ?= -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ub
 
 /* Custom font stacks */
 $roboto = Roboto, $system-fonts
-$roboto-medium = Roboto-Medium, $system-fonts
-$roboto-light = Roboto-Light, $system-fonts
 
 /* Typography variables mapping*/
 
@@ -135,6 +133,42 @@ vr-block($units = 1, $px-offset = false)
   else
     return ( (($type-line-height-ratio * $type-base-font-size) / ($type-base-font-size / 2)) * ($units / 2) )em
 
+/* base-spaceing-units calculator */
+
+type-bsu($blocks = 1, $unit = 'inrem')
+  if $unit == 'inrem'
+    return ($blocks * 0.5)rem
+  if $unit == 'inpx'
+    return ($blocks * 8)px
+
+// Convert relative or absolute unit to rem
+
+/* TODO: accept %, px, em, and pt as context */
+rem(x, context = $type-base-font-size)
+  if unit(context) == 'px'
+    context = unit((100 * unit(context, '') / 16), '%')
+  if unit(x) is 'px'
+    unit(x / (context * 4/25), 'rem');
+  else if unit(x) is '%'
+    unit(x / context, 'rem');
+  else if unit(x) is 'pt'
+    unit(x / (context * 4/25), 'rem');
+
+/* Convert relative or absolute unit to em */
+/* E. g. em(56px, context: @font-size) */
+
+/* TODO: accept %, px, rem, and pt as context */
+em(x, context=100%)
+  if unit(context) == 'px'
+    context = unit((100 * unit(context, '') / 16), '%')
+  if unit(context) == 'rem'
+    context = unit((100 * unit(context, '') / 1), '%')
+  if unit(x) is 'px'
+    unit(x / (context * 4/25), 'em');
+  else if unit(x) is '%'
+    unit(x / context, 'em');
+  else if unit(x) is 'pt'
+    unit(x / (context * 4/25), 'em');
 /* Typography Mixins */
 
 type-reset()
@@ -156,10 +190,10 @@ apply-font($font = $system-fonts, $weight = false, $style = false)
     font-style: $style
 
 type-html($color = $type-body-color, $opacity = false)
-  apply-font()
+  apply-font($system-fonts)
   color: $color
   font-size: $type-base-font-size // 16px
-  line-height: ($type-line-height-ratio)em // 1,5 = 24px base line height
+  line-height: ($type-line-height-ratio) // 1,5 = 24px base line height
 
   if $opacity
     opacity: $opacity; // 0.87
@@ -168,7 +202,7 @@ type-body = type-html
 type-p = type-html
 
 type-display($color = $type-heading-color, $opacity = false)
-  apply-font($system-fonts, $type-body-font-weight)
+  apply-font($system-fonts, $type-heading-font-weight)
   clear: both
   color: $color;
 
@@ -177,11 +211,10 @@ type-display($color = $type-heading-color, $opacity = false)
 
 
 type-display4()
-  /* overwrite settings via type-display */
-  font-weight: 300;
-
   font-size: 112px;
   font-size: 7rem;
+  /* overwrite settings via type-display */
+  font-weight: 300;
   letter-spacing: -0.04em;
   line-height: 1;
 
@@ -211,7 +244,7 @@ type-title()
   font-size: 20px;
   font-size: 1.25rem;
   // overwrite settings of type-display
-  font-weight: 500
+  font-weight: bold;
   letter-spacing: 0.02em;
   line-height: 1;
 
@@ -243,7 +276,7 @@ type-menu()
   font-size: 14px;
   font-size: 0.875rem// 14px
   /* overwrite settings of type-html */
-  font-weight: 500
+  font-weight: bold;
   letter-spacing: 0;
   line-height: 1;
 
@@ -255,7 +288,7 @@ type-caption()
 
 type-blockquote()
   /* overwrite settings of type-html */
-  apply-font($system-fonts, 300, italic)
+  apply-font($system-fonts, light, italic)
 
   font-size: 1.5rem; // 24px
   line-height: (32 / 24); // 2rem //32px
@@ -294,7 +327,7 @@ type-abbr()
 
 type-dt()
   // color: $type-heading-color
-  font-weight: 500;
+  font-weight: bold;
 
 type-fieldset()
   padding: vr-block(.5) vr-block() vr-block(); // 0.75em 1.5em 1.5em;
@@ -307,7 +340,7 @@ type-fieldset()
 
 type-legend()
   color: $type-heading-color
-  font-weight: 500;
+  font-weight: bold;
 
 type-label()
   display: block
@@ -317,7 +350,7 @@ type-label()
 type-input()
   display: block;
   max-width: 100%;
-  padding: vr-block(.25)
+  padding: vr-block(1/6)
   //font-size: 1rem; // 16px
   margin-bottom: vr-block((2/3)) //16px
 
@@ -399,11 +432,10 @@ type-styleElements()
     type-display()
 
   .fonts-loaded
-    h1, h2, h3, h4
+    h1, h2, h3, h4, h5, h6
       font-family: $type-heading-font;
     h5, h6
-      font-family: $roboto-medium
-      font-weight: 500
+      font-weight: 500;
 
   h1
     type-display3()
@@ -443,7 +475,6 @@ type-styleElements()
   h6
     type-subhead1()
     color: $type-body-color
-    font-weight: 500;
     //margin-top: 24px;
     //margin-top: 1.5rem;
     margin-bottom: 16px;
@@ -452,14 +483,10 @@ type-styleElements()
   a
     color: $type-link-color
   .fonts-loaded a
-     apply-font($roboto-medium, 500)
+     font-weight: 500
 
    mark
     background-color: #f4ff81;
-
-  dt {
-    font-weight: 700;
-  }
 
   address {
     type-caption();
@@ -468,8 +495,6 @@ type-styleElements()
 
   blockquote
     type-blockquote()
-  .fonts-loaded blockquote
-    font-family: $roboto-light
 
   pre
     type-pre()
@@ -487,7 +512,7 @@ type-styleElements()
   dt
     type-dt()
   .fonts-loaded dt
-    font-family: $roboto-medium
+    font-weight: 500
 
   // ul
   //   padding-left: 1.1em
@@ -503,7 +528,7 @@ type-styleElements()
   legend
     type-legend()
   .fonts-loaded legend
-    apply-font($roboto-medium, 500)
+    font-weight: 500
 
   label
     type-label()
@@ -516,7 +541,7 @@ type-styleElements()
   .fonts-loaded
     & input[type="submit"],
     & button
-      apply-font($roboto-medium, 500)
+      font-weight: 500;
 
   table
     type-table()
@@ -524,9 +549,67 @@ type-styleElements()
   th
     type-th()
   .fonts-loaded th
-    apply-font($roboto-medium, 500)
+    font-weight: 500
 
   td
     type-td()
 
 type-styleElements()
+
+/* Typography class definitions */
+
+.Type {
+  //just testing
+  background-color: #eaf2ff
+}
+
+.Type--display4,
+.Type--display3
+  type-display();
+
+.fonts-loaded
+ .Type--display4,
+ .Type--display3,
+ .Type--display2,
+ .Type--display1,
+ .Type--headline,
+ .Type--title
+   font-family: $type-heading-font
+
+.Type--display4
+  type-display4()
+
+.Type--display3
+  type-display3()
+
+.Type--display2
+  type-display2()
+
+.Type--display1
+  type-display1()
+
+.Type--headline
+  type-headline()
+
+.Type--title
+  type-title()
+
+.Type--subhead2
+  type-subhead2()
+
+.Type--subhead1
+  type-subhead1()
+
+.Type--body2
+  type-body2()
+
+.Type--body1
+  type-body1()
+
+.Type--menu
+  type-menu()
+.fonts-loaded .Type--menu
+    font-weight: 500;
+
+.Type--caption
+  type-caption()
