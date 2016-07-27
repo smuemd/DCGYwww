@@ -38,41 +38,11 @@ $dcgy-color-white-hint ?= rgba(255, 255, 255, $dcgy-color-black-opacity-hint);
 $dcgy-color-white-disabled ?= $dcgy-color-white-hint
 $dcgy-color-white-divider ?= rgba(255, 255, 255, $dcgy-color-black-opacity-divider);
 
-/* Sans-serif */
-$calibri ?= 'Calibri', 'Candara', 'Segoe', 'Segoe UI', 'Optima', 'Arial', 'sans-serif'
-$candara ?= 'Candara', 'Calibri', 'Segoe', 'Segoe UI', 'Optima', 'Arial', 'sans-serif'
-$courier ?= 'Courier New', 'Courier', 'Lucida Sans Typewriter', 'Lucida Typewriter', 'monospace'
-$franklin ?= 'Franklin Gothic Medium', 'Arial', 'sans-serif'
-$futura ?= 'Futura', 'Trebuchet MS', 'Arial', 'sans-serif'
-$geneva ?= 'Geneva', 'Tahoma', 'Verdana', 'sans-serif'
-$gill-sans ?= 'Gill Sans', 'Gill Sans MT', 'Calibri', 'sans-serif'
-$helvetica ?= 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'
-$lucida-grande ?= 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Geneva', 'Verdana', 'sans-serif'
-$optima ?= 'Optima', 'Segoe', 'Segoe UI', 'Candara', 'Calibri', 'Arial', 'sans-serif'
-$segoe ?= 'Segoe', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'
-$tahoma ?= 'Tahoma', 'Geneva', 'Verdana', 'sans-serif'
-$trebuchet ?= 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Tahoma', 'sans-serif'
-$verdana ?= 'Verdana', 'Geneva', 'sans-serif'
 
-/* Serif */
-$antiqua = 'Book Antiqua', 'Palatino', 'Palatino Linotype', 'Palatino LT STD', 'Georgia', 'serif'
-$baskerville = 'Baskerville', 'Baskerville old face', 'Hoefler Text', 'Garamond', 'Times New Roman', 'serif'
-$bodoni = 'Bodoni MT', 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', 'serif'
-$cambria = 'Cambria', 'Georgia', 'serif'
-$caslon = 'Big Caslon', 'Book Antiqua', 'Palatino Linotype', 'Georgia', 'serif'
-$constantia = 'Constantia', 'Palatino', 'Palatino Linotype', 'Palatino LT STD', 'Georgia', 'serif'
-$didot = 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', 'serif'
-$garamond = 'Garamond', 'Baskerville', 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', 'serif'
-$goudy = 'Goudy Old Style', 'Garamond', 'Big Caslon', 'Times New Roman', 'serif'
-$hoefler = 'Hoefler Text', 'Baskerville old face', 'Garamond', 'Times New Roman', 'serif'
-$lucida-bright = 'Lucida Bright', 'Georgia', 'serif'
-$palatino = 'Palatino', 'Palatino Linotype', 'Palatino LT STD', "Book Antiqua", 'Georgia', 'serif'
-
-/* system fonts */
-$system-fonts ?= -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+/* system fonts */$system-fonts = -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
 /* Custom font stacks */
-$roboto = Roboto, $system-fonts
+$roboto = Roboto, $system-fonts;
 
 /* Typography variables mapping*/
 
@@ -92,6 +62,7 @@ $type-link-color = #3CC76A
 $type-heading-font = $roboto; // $heading-font = $helvetica
 $type-heading-font-weight = normal; //400
 $type-heading-color = $dcgy-color-black-secondary-hex; // $heading-color = #111
+
 /* Helpers */
 
 /* Grid overlay */
@@ -212,7 +183,8 @@ type-block()
   margin-bottom: ($type-line-height-ratio)rem; // 1.5rem
 
 apply-font($font = $system-fonts, $weight = false, $style = false)
-  font-family: $font
+  if $font
+    font-family: $font
   if $weight
     font-weight: $weight;
   if $style
@@ -232,7 +204,6 @@ type-p = type-html
 
 type-display($color = false, $weight = $type-heading-font-weight, $opacity = false)
   // apply font not needed here by default
-  // apply-font()
   clear: both
   if $color
     color: $color;
@@ -306,7 +277,6 @@ type-body1()
 type-menu()
   font-size: 14px;
   font-size: rem(14px)// 14px
-  /* overwrite settings of type-html */
   font-weight: 500;
   letter-spacing: 0;
   line-height: 1;
@@ -328,10 +298,9 @@ type-caption()
   line-height: 1;
 
 type-blockquote()
-  /* overwrite settings of type-html */
-  apply-font($system-fonts, light, italic)
-
   font-size: 1.5rem; // 24px
+  font-style: italic;
+  font-weight: 300;
   line-height: (32 / 24); // 2rem //32px
   letter-spacing: 0.08em;
   margin-bottom: 1em;
@@ -432,147 +401,145 @@ type-td()
  * @example
  *   type-styleElements()
  */
-typography()
+//$type-target-elements = false
+if $type-target-elements
+  typography()
 
-  html
-    type-html()
-  html.fonts-loaded
-    font-family: $type-body-font;
-  body
-    max-width: 1008px
-    margin: auto;
+    html
+      type-html()
+    html.fonts-loaded
+      font-family: $type-body-font
+    body
+      max-width: 1008px
+      margin: auto;
 
-  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-  a, abbr, acronym, address, big, cite, code,
-  del, dfn, em, img, ins, kbd, q, s, samp,
-  small, strike, strong, sub, sup, tt, var,
-  b, u, i, center,
-  dl, dt, dd, ol, ul, li,
-  fieldset, form, label, legend,
-  table, caption, tbody, tfoot, thead, tr, th, td
-    type-reset()
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td
+      type-reset()
 
-  a
-    color: $type-link-color
-    font-weight: 500
+    a
+      color: $type-link-color
+      font-weight: 500
 
-  p, blockquote, pre,
-  address,
-  dl, ol, ul,
-  table
-    type-block()
+    p, blockquote, pre,
+    address,
+    dl, ol, ul,
+    table
+      type-block()
 
-  //p:last-of-type
-    //margin-bottom: 0;
+    //p:last-of-type
+      //margin-bottom: 0;
 
-  h1, h2, h3, h4
-    type-display($weight: $type-heading-font-weight)
-    margin-bottom: 24px
-    margin-bottom: 1.5rem
-  h5, h6
-    type-display($weight: 500)
-    margin-bottom: 16px
-    margin-bottom: 1rem
+    h1, h2, h3, h4, h5 ,h6
+      type-display($weight: $type-heading-font-weight)
+      margin-bottom: 24px
+      margin-bottom: 1.5rem
 
-  h1
-    //type-display3() // avoid letter-spacing
-    font-size: 56px;
-    font-size: 3.5rem;
-    line-height: (72 / 56);
+    h1
+      // //type-display3() // avoid letter-spacing
+      font-size: 56px;
+      font-size: 3.5rem;
+      line-height: (72 / 56);
 
-  h2
-    type-display2()
+    h2
+      type-display2()
 
-  h3
-    type-display1()
+    h3
+      type-display1()
 
-  h4
-    type-headline()
+    h4
+      type-headline()
 
-  h5
-    //type-title() // avoid letter-spacing
-    //TODO: consider linehight 1.5rem (24px)
-    font-size: 20px;
-    font-size: 1.25rem;
-    line-height: 1;
+    h5
+      // //type-title() // avoid letter-spacing
+      font-size: 20px;
+      font-size: 1.25rem;
+      line-height: unit(em(24px, @font-size), ''); // Note: bumped linehight to 24px from 1
 
-  h6
-    //type-subhead1() // avoid letter-spacing
-    font-size: 16px;
-    font-size: 1rem;
-    line-height: (24 / 16);
+    h6
+      // //type-subhead1() // avoid letter-spacing
+      font-size: 16px;
+      font-size: 1rem;
+      font-weight: 500
+      line-height: (24 / 16);
 
-   mark
-    background-color: #f4ff81;
+     mark
+      background-color: #f4ff81;
 
-  address {
-    type-caption();
-    font-style: normal;
-  }
+    address {
+      type-caption();
+      font-style: normal;
+    }
 
-  blockquote
-    type-blockquote()
+    blockquote
+      type-blockquote()
 
-  pre
-    type-pre()
+    pre
+      type-pre()
 
-  code
-    type-code()
+    code
+      type-code()
 
-  big, small, sub, sup
-    line-height: 0
+    big, small, sub, sup
+      line-height: 0
 
-  abbr, acronym
-    &[title]
-      type-abbr()
+    abbr, acronym
+      &[title]
+        type-abbr()
 
-  dt
-    type-dt()
+    dt
+      type-dt()
 
-  // ul
-  //   padding-left: 1.1em
-  //   list-style: disc;
+    // ul
+    //   padding-left: 1.1em
+    //   list-style: disc;
 
-  // ol
-  //   padding-left: 1.4em
-  //   list-style: decimal;
+    // ol
+    //   padding-left: 1.4em
+    //   list-style: decimal;
 
-  fieldset
-    type-fieldset();
+    fieldset
+      type-fieldset();
 
-  legend
-    type-legend();
+    legend
+      type-legend();
 
-  label
-    type-label()
+    label
+      type-label()
 
-  input[type="text"], input[type="email"], input[type="password"], textarea
-    type-input()
+    input[type="text"], input[type="email"], input[type="password"], textarea
+      type-input()
 
-  input[type="submit"], button
-    type-button()
+    input[type="submit"], button
+      type-button()
 
-  table
-    type-table()
+    table
+      type-table()
 
-  th
-    type-th()
+    th
+      type-th()
 
 
-  td
-    type-td()
+    td
+      type-td()
 
 /* Typography class definitions */
 
 .Type {
-  //just testing
-  background-color: #eaf2ff
+  /* no styles on component base class*/
+  //background-color: #eaf2ff;
 }
 
 .Type--display4,
 .Type--display3,
 .Type--display2,
-.Type--display1
+.Type--display1,
 //type-display($color: $type-heading-color, $weight: $type-heading-font-weight, $opacity: false);
 .Type--headline,
 .Type--title
@@ -610,8 +577,6 @@ typography()
 
 .Type--menu
   type-menu()
-.fonts-loaded .Type--menu
-    font-weight: 500;
 
 .Type--caption
   type-caption()
