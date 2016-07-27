@@ -38,41 +38,11 @@ $dcgy-color-white-hint ?= rgba(255, 255, 255, $dcgy-color-black-opacity-hint);
 $dcgy-color-white-disabled ?= $dcgy-color-white-hint
 $dcgy-color-white-divider ?= rgba(255, 255, 255, $dcgy-color-black-opacity-divider);
 
-/* Sans-serif */
-$calibri ?= 'Calibri', 'Candara', 'Segoe', 'Segoe UI', 'Optima', 'Arial', 'sans-serif'
-$candara ?= 'Candara', 'Calibri', 'Segoe', 'Segoe UI', 'Optima', 'Arial', 'sans-serif'
-$courier ?= 'Courier New', 'Courier', 'Lucida Sans Typewriter', 'Lucida Typewriter', 'monospace'
-$franklin ?= 'Franklin Gothic Medium', 'Arial', 'sans-serif'
-$futura ?= 'Futura', 'Trebuchet MS', 'Arial', 'sans-serif'
-$geneva ?= 'Geneva', 'Tahoma', 'Verdana', 'sans-serif'
-$gill-sans ?= 'Gill Sans', 'Gill Sans MT', 'Calibri', 'sans-serif'
-$helvetica ?= 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'
-$lucida-grande ?= 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Geneva', 'Verdana', 'sans-serif'
-$optima ?= 'Optima', 'Segoe', 'Segoe UI', 'Candara', 'Calibri', 'Arial', 'sans-serif'
-$segoe ?= 'Segoe', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'
-$tahoma ?= 'Tahoma', 'Geneva', 'Verdana', 'sans-serif'
-$trebuchet ?= 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Tahoma', 'sans-serif'
-$verdana ?= 'Verdana', 'Geneva', 'sans-serif'
 
-/* Serif */
-$antiqua = 'Book Antiqua', 'Palatino', 'Palatino Linotype', 'Palatino LT STD', 'Georgia', 'serif'
-$baskerville = 'Baskerville', 'Baskerville old face', 'Hoefler Text', 'Garamond', 'Times New Roman', 'serif'
-$bodoni = 'Bodoni MT', 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', 'serif'
-$cambria = 'Cambria', 'Georgia', 'serif'
-$caslon = 'Big Caslon', 'Book Antiqua', 'Palatino Linotype', 'Georgia', 'serif'
-$constantia = 'Constantia', 'Palatino', 'Palatino Linotype', 'Palatino LT STD', 'Georgia', 'serif'
-$didot = 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', 'serif'
-$garamond = 'Garamond', 'Baskerville', 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', 'serif'
-$goudy = 'Goudy Old Style', 'Garamond', 'Big Caslon', 'Times New Roman', 'serif'
-$hoefler = 'Hoefler Text', 'Baskerville old face', 'Garamond', 'Times New Roman', 'serif'
-$lucida-bright = 'Lucida Bright', 'Georgia', 'serif'
-$palatino = 'Palatino', 'Palatino Linotype', 'Palatino LT STD', "Book Antiqua", 'Georgia', 'serif'
-
-/* system fonts */
-$system-fonts ?= -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+/* system fonts */$system-fonts = -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
 /* Custom font stacks */
-$roboto = Roboto, $system-fonts
+$roboto = Roboto, $system-fonts;
 
 /* Typography variables mapping*/
 
@@ -80,20 +50,22 @@ $roboto = Roboto, $system-fonts
 $type-base-font-size = 100%;
 $type-line-height-ratio = 1.5 //line-height-ratio = 1.5
 //$heading-ratio = $golden
+$type-target-elements = true
 
 /* body */
 $type-body-font = $roboto // $body-font = $roboto, $system-fonts
-$type-body-font-weight = 400
+$type-body-font-weight = normal //400
 $type-body-color = $dcgy-color-black-primary-hex; // $body-color = #212121 //#666
 $type-link-color = #3CC76A
 
 /* headings */
 $type-heading-font = $roboto; // $heading-font = $helvetica
-$type-heading-font-weight = 400;
+$type-heading-font-weight = normal; //400
 $type-heading-color = $dcgy-color-black-secondary-hex; // $heading-color = #111
 
 /* Helpers */
 
+/* Grid overlay */
 /**
  * Creates a baseline grid based off your $type-line-height-ratio to help visualize
  * your vertical rhythm grid. You can offset the grid by negative or positive
@@ -106,12 +78,14 @@ $type-heading-color = $dcgy-color-black-secondary-hex; // $heading-color = #111
  * @example
  *   grid-overlay(blue, 2)
  */
-grid-overlay($color = black, $px-offset = false)
+type-grid-overlay($ratio = $type-line-height-ratio, $color = black, $px-offset = false)
   body
     background: linear-gradient(to top, rgba($color, 10%) 5%, white 5%)
-    background-size: 100% ($type-line-height-ratio )em
+    background-size: 100% ($ratio )em
     if $px-offset
       background-position: 0 unit($px-offset, 'px')
+
+/* Type vertical rythm block */
 /**
  * Returns a "vertical unit". Useful for specifying the height and margins of
  * non-text elements like images and such.
@@ -124,27 +98,45 @@ grid-overlay($color = black, $px-offset = false)
  *
  * @example
  *   img
- *     padding-top vr-block(5.25, .5)
+ *     padding-top type-vr-block(5.25, .5)
  */
-
-vr-block($units = 1, $px-offset = false)
+type-vr-block($units = 1, $px-offset = false)
   if $px-offset
     return ( (($type-line-height-ratio * $type-base-font-size) / ($type-base-font-size / 2)) * ($units / 2) * (1 + ($px-offset / $type-base-font-size)) )em
   else
     return ( (($type-line-height-ratio * $type-base-font-size) / ($type-base-font-size / 2)) * ($units / 2) )em
 
 /* base-spaceing-units calculator */
-
+/**
+ * returns multiples of the bases pacing unit of 8px or 0.5rem in rem or pixel.
+ *
+ * @param {number} [$blocks=1] - Number of blocks to multiply with the base spacing unit.
+ * @param {string} [$unit='inrem'] - return the multiple in rem ('inrem') or in pixel ('inpx')
+ *
+ * @example
+ *    img
+ *      margin-bottom: type-bsu(4, 'inpx')
+ */
 type-bsu($blocks = 1, $unit = 'inrem')
   if $unit == 'inrem'
     return ($blocks * 0.5)rem
   if $unit == 'inpx'
     return ($blocks * 8)px
 
-// Convert relative or absolute unit to rem
-
-/* TODO: accept %, px, em, and pt as context */
-rem(x, context = $type-base-font-size)
+/* rem converter */
+/**
+ *  converts relative or absolute unit to rem
+ *
+ * @param {value} [x] - Value to convert into rem. Accepts values in px, %, pt
+ * @param {fontsize} [context=100%] - Context fontsize to run the conversion
+ * against. Defaults to '100%' Accepts '%' and 'px'.
+ * TODO: accept em, rem, and pt as context
+ *
+ * @example
+ *    img
+ *      margin-bottom: rem(12px, context: 14px)
+ */
+rem(x, context = 100%)
   if unit(context) == 'px'
     context = unit((100 * unit(context, '') / 16), '%')
   if unit(x) is 'px'
@@ -154,10 +146,19 @@ rem(x, context = $type-base-font-size)
   else if unit(x) is 'pt'
     unit(x / (context * 4/25), 'rem');
 
-/* Convert relative or absolute unit to em */
-/* E. g. em(56px, context: @font-size) */
-
-/* TODO: accept %, px, rem, and pt as context */
+/* em converter */
+/**
+ *  converts relative or absolute unit to em
+ *
+ * @param {value} [x] - Value to convert into em. Accepts values in px, %, pt
+ * @param {fontsize} [context=100%] - Context fontsize to run the conversion
+ * against. Defaults to '100%' Accepts '%', 'px' and 'rem'.
+ * TODO: accept em and pt as context
+ *
+ * @example
+ *    img
+ *      margin-bottom: em(56px, context: @font-size)
+ */
 em(x, context=100%)
   if unit(context) == 'px'
     context = unit((100 * unit(context, '') / 16), '%')
@@ -169,6 +170,7 @@ em(x, context=100%)
     unit(x / context, 'em');
   else if unit(x) is 'pt'
     unit(x / (context * 4/25), 'em');
+
 /* Typography Mixins */
 
 type-reset()
@@ -176,14 +178,13 @@ type-reset()
   padding: 0
 
 type-block()
-  // TODO: Mixin for base-spacing-unit bsu()
-  //        => bsu(3, inrem) = 1 rem or bsu(3, inpx) = 24px
   // NOTE OLD: margin-bottom: ($type-line-height-ratio)em; // 1.5em
   margin-bottom: 24px;
   margin-bottom: ($type-line-height-ratio)rem; // 1.5rem
 
 apply-font($font = $system-fonts, $weight = false, $style = false)
-  font-family: $font
+  if $font
+    font-family: $font
   if $weight
     font-weight: $weight;
   if $style
@@ -201,11 +202,13 @@ type-html($color = $type-body-color, $opacity = false)
 type-body = type-html
 type-p = type-html
 
-type-display($color = $type-heading-color, $opacity = false)
-  apply-font($system-fonts, $type-heading-font-weight)
+type-display($color = false, $weight = $type-heading-font-weight, $opacity = false)
+  // apply font not needed here by default
   clear: both
-  color: $color;
-
+  if $color
+    color: $color;
+  if $weight
+    font-weight: $weight;
   if $opacity
     opacity: $opacity; // 0.54
 
@@ -243,8 +246,7 @@ type-headline()
 type-title()
   font-size: 20px;
   font-size: 1.25rem;
-  // overwrite settings of type-display
-  font-weight: bold;
+  font-weight: 500;
   letter-spacing: 0.02em;
   line-height: 1;
 
@@ -274,11 +276,20 @@ type-body1()
 
 type-menu()
   font-size: 14px;
-  font-size: 0.875rem// 14px
-  /* overwrite settings of type-html */
-  font-weight: bold;
+  font-size: rem(14px)// 14px
+  font-weight: 500;
   letter-spacing: 0;
   line-height: 1;
+
+type-button()
+  type-menu()
+  cursor: pointer
+  display: block
+  margin: em(6px, context: @font-size);
+  margin: rem(6px);
+  padding: em(11px, context: @font-size);
+  padding: rem(11px);
+  text-transform: uppercase;
 
 type-caption()
   font-size: 12px;
@@ -287,10 +298,9 @@ type-caption()
   line-height: 1;
 
 type-blockquote()
-  /* overwrite settings of type-html */
-  apply-font($system-fonts, light, italic)
-
   font-size: 1.5rem; // 24px
+  font-style: italic;
+  font-weight: 300;
   line-height: (32 / 24); // 2rem //32px
   letter-spacing: 0.08em;
   margin-bottom: 1em;
@@ -310,8 +320,8 @@ type-blockquote()
     //font-style: normal;
 
 type-pre()
-  padding: vr-block(.5) // 12px
-  margin-bottom: vr-block(1) // 24px
+  padding: type-vr-block(.5) // 12px
+  margin-bottom: type-vr-block(1) // 24px
   code
     padding: 0
 
@@ -327,55 +337,48 @@ type-abbr()
 
 type-dt()
   // color: $type-heading-color
-  font-weight: bold;
+  font-weight: 500;
 
 type-fieldset()
-  padding: vr-block(.5) vr-block() vr-block(); // 0.75em 1.5em 1.5em;
+  padding: type-vr-block(.5) type-vr-block() type-vr-block(); // 0.75em 1.5em 1.5em;
   border: 1px solid $dcgy-color-black-divider-hex;
   max-width: 100%;
-  margin-bottom: vr-block((4/3)); // 1.5em
+  margin-bottom: type-vr-block((4/3)); // 1.5em
 
   /* button, input[type='submit']
     // margin-bottom: 0; */
 
 type-legend()
-  color: $type-heading-color
-  font-weight: bold;
+  //color: $type-heading-color
+  font-weight: 500
 
 type-label()
   display: block
-  padding-bottom: vr-block((1/6))
-  margin-bottom: vr-block(-(1/6))
+  padding-bottom: type-vr-block((1/6))
+  margin-bottom: type-vr-block(-(1/6))
 
 type-input()
   display: block;
   max-width: 100%;
-  padding: vr-block(1/6)
+  padding: type-vr-block(1/6)
   //font-size: 1rem; // 16px
-  margin-bottom: vr-block((2/3)) //16px
-
-type-button()
-  type-menu()
-  text-transform: uppercase;
-  display: block
-  cursor: pointer
-  padding: (11 / 14)em;
-  margin: (6 / 14)em;
+  margin-bottom: type-vr-block((2/3)) //16px
 
 type-table()
   width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
-  margin-bottom: vr-block((4/3)) // 16px
+  margin-bottom: type-vr-block((4/3)) // 16px
 
 type-th()
+  //color: $type-heading-color;
+  font-weight: 500
   text-align: left
-  color: $type-heading-color;
 
-  padding: vr-block((1/3)) vr-block(0.5); // 4px 8px
+  padding: type-vr-block((1/3)) type-vr-block(0.5); // 4px 8px
 
 type-td()
-  padding: vr-block((1/3)) vr-block(0.5); // 4px 8px
+  padding: type-vr-block((1/3)) type-vr-block(0.5); // 4px 8px
 
 // type-icon()
 //   font-family: 'Material Icons';
@@ -390,7 +393,7 @@ type-td()
 //   font-feature-settings: 'liga';
 //   -webkit-font-smoothing: antialiased;
 
-
+/* Typographic reset */
 /**
  * The Typographic Reset. This is where the Typeography module goes through
  * every markup element and styles it.
@@ -398,183 +401,149 @@ type-td()
  * @example
  *   type-styleElements()
  */
+//$type-target-elements = false
+if $type-target-elements
+  typography()
 
-type-styleElements()
+    html
+      type-html()
+    html.fonts-loaded
+      font-family: $type-body-font
+    body
+      max-width: 1008px
+      margin: auto;
 
-  html
-    type-html()
-  html.fonts-loaded
-    font-family: $type-body-font;
-  body
-    max-width: 1008px
-    margin: auto;
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td
+      type-reset()
 
-  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-  a, abbr, acronym, address, big, cite, code,
-  del, dfn, em, img, ins, kbd, q, s, samp,
-  small, strike, strong, sub, sup, tt, var,
-  b, u, i, center,
-  dl, dt, dd, ol, ul, li,
-  fieldset, form, label, legend,
-  table, caption, tbody, tfoot, thead, tr, th, td
-    type-reset()
+    a
+      color: $type-link-color
+      font-weight: 500
 
-  p, blockquote, pre,
-  address,
-  dl, ol, ul,
-  table
-    type-block()
+    p, blockquote, pre,
+    address,
+    dl, ol, ul,
+    table
+      type-block()
 
-  //p:last-of-type
-    //margin-bottom: 0;
+    //p:last-of-type
+      //margin-bottom: 0;
 
-  h1, h2, h3, h4, h5, h6
-    type-display()
+    h1, h2, h3, h4, h5 ,h6
+      type-display($weight: $type-heading-font-weight)
+      margin-bottom: 24px
+      margin-bottom: 1.5rem
 
-  .fonts-loaded
-    h1, h2, h3, h4, h5, h6
-      font-family: $type-heading-font;
-    h5, h6
-      font-weight: 500;
+    h1
+      // //type-display3() // avoid letter-spacing
+      font-size: 56px;
+      font-size: 3.5rem;
+      line-height: (72 / 56);
 
-  h1
-    type-display3()
-    //margin-top: 24px;
-    //margin-top: 1.5rem;
-    margin-bottom: 24px;
-    margin-bottom: 1.5rem;
+    h2
+      type-display2()
 
-  h2
-    type-display2()
-    //margin-top: 24px;
-    //margin-top: 1.5rem;
-    margin-bottom: 24px;
-    margin-bottom: 1.5rem;
+    h3
+      type-display1()
 
-  h3
-    type-display1()
-    //margin-top: 24px;
-    //margin-top: 1.5rem;
-    margin-bottom: 24px;
-    margin-bottom: 1.5rem;
+    h4
+      type-headline()
 
-  h4
-    type-headline()
-    //margin-top: 24px;
-    //margin-top: 1.5rem;
-    margin-bottom: 24px;
-    margin-bottom: 1.5rem;
+    h5
+      // //type-title() // avoid letter-spacing
+      font-size: 20px;
+      font-size: 1.25rem;
+      line-height: unit(em(24px, @font-size), ''); // Note: bumped linehight to 24px from 1
 
-  h5
-    type-title()
-    //margin-top: 24px;
-    //margin-top: 1.5rem;
-    margin-bottom: 16px;
-    margin-bottom: 1rem;
+    h6
+      // //type-subhead1() // avoid letter-spacing
+      font-size: 16px;
+      font-size: 1rem;
+      font-weight: 500
+      line-height: (24 / 16);
 
-  h6
-    type-subhead1()
-    color: $type-body-color
-    //margin-top: 24px;
-    //margin-top: 1.5rem;
-    margin-bottom: 16px;
-    margin-bottom: 1rem;
+     mark
+      background-color: #f4ff81;
 
-  a
-    color: $type-link-color
-  .fonts-loaded a
-     font-weight: 500
+    address {
+      type-caption();
+      font-style: normal;
+    }
 
-   mark
-    background-color: #f4ff81;
+    blockquote
+      type-blockquote()
 
-  address {
-    type-caption();
-    font-style: normal;
-  }
+    pre
+      type-pre()
 
-  blockquote
-    type-blockquote()
+    code
+      type-code()
 
-  pre
-    type-pre()
+    big, small, sub, sup
+      line-height: 0
 
-  code
-    type-code()
+    abbr, acronym
+      &[title]
+        type-abbr()
 
-  big, small, sub, sup
-    line-height: 0
+    dt
+      type-dt()
 
-  abbr, acronym
-    &[title]
-      type-abbr()
+    // ul
+    //   padding-left: 1.1em
+    //   list-style: disc;
 
-  dt
-    type-dt()
-  .fonts-loaded dt
-    font-weight: 500
+    // ol
+    //   padding-left: 1.4em
+    //   list-style: decimal;
 
-  // ul
-  //   padding-left: 1.1em
-  //   list-style: disc;
+    fieldset
+      type-fieldset();
 
-  // ol
-  //   padding-left: 1.4em
-  //   list-style: decimal;
+    legend
+      type-legend();
 
-  fieldset
-    type-fieldset()
+    label
+      type-label()
 
-  legend
-    type-legend()
-  .fonts-loaded legend
-    font-weight: 500
+    input[type="text"], input[type="email"], input[type="password"], textarea
+      type-input()
 
-  label
-    type-label()
+    input[type="submit"], button
+      type-button()
 
-  input[type="text"], input[type="email"], input[type="password"], textarea
-    type-input()
+    table
+      type-table()
 
-  input[type="submit"], button
-    type-button()
-  .fonts-loaded
-    & input[type="submit"],
-    & button
-      font-weight: 500;
+    th
+      type-th()
 
-  table
-    type-table()
 
-  th
-    type-th()
-  .fonts-loaded th
-    font-weight: 500
-
-  td
-    type-td()
-
-type-styleElements()
+    td
+      type-td()
 
 /* Typography class definitions */
 
 .Type {
-  //just testing
-  background-color: #eaf2ff
+  /* no styles on component base class*/
+  //background-color: #eaf2ff;
 }
 
 .Type--display4,
-.Type--display3
-  type-display();
-
-.fonts-loaded
- .Type--display4,
- .Type--display3,
- .Type--display2,
- .Type--display1,
- .Type--headline,
- .Type--title
-   font-family: $type-heading-font
+.Type--display3,
+.Type--display2,
+.Type--display1,
+//type-display($color: $type-heading-color, $weight: $type-heading-font-weight, $opacity: false);
+.Type--headline,
+.Type--title
+  type-display($color: false, $weight: $type-heading-font-weight, $opacity: false)
 
 .Type--display4
   type-display4()
@@ -608,8 +577,10 @@ type-styleElements()
 
 .Type--menu
   type-menu()
-.fonts-loaded .Type--menu
-    font-weight: 500;
 
 .Type--caption
   type-caption()
+
+if $type-target-elements
+  typography()
+  //type-grid-overlay(($type-line-height-ratio / 3))
