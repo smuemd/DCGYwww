@@ -1,22 +1,192 @@
-nav.Navigation
-  .Navigation-body
+-
+  var navigationLinks = ['Zähler', 'Produkte', 'Lösungen'];
+  var metering = ['Stromzähler', 'Lastgangszähler', 'Gaszähler', 'Meteorit Gateway', 'Messstellenbetrieb'];
+  
+  var platform = { 
+    meters: ['Stromzähler', 'Lastgangzähler', 'Gaszähler', 'Messstellenbetrieb'], 
+    metering: ['Smart Meter Gateway', 'Discovergy Lite', 'IT Plattform']
+  };
+  
+  var features = [
+  'Portal',
+  'Echtzeit-Monitoring',
+  'Profi-Tools',
+  'App',
+  'Benachrichtigungen',
+  'Energiereport',
+  'Energiespartipps',
+  'Tarifberatung',
+  'Geräteerkennung'
+  ];
+  
+  var softwareProducts = {
+    products: [
+    'Portal Dashboard',
+    'Echtzeit Monitoring',
+    'Analyse Platfrom',
+    'Mobile Apps',
+    'Dynamische Kostenanalyse'
+    ],
+    addons: [
+    'Benachrichtigungen',
+    'Energiebericht',
+    'Energiespartips',
+    'Tarifberatung'],
+    profiTools: [
+    'Geräteerkennung',
+    'Heatmap Analysen',
+    'Lastprofile',
+    'Tagesprofil Visualisierung',
+    'Histogramm Analyse'
+    ]
+  }
+  
+  var solutions = [
+  'Energiemonitoring', 'Branchenlösungen',
+  'Mobilfunkbetreiber', 'Energieerzeugung', 'Photovoltaik', 'BKHW'
+  ]
+  
+  var solutionsMobile = {
+    solutions: ['Private Haushalte', 'Gerwerbe & Industrie', 'Energieversorger', 'Verteilnetzbetreiber'],
+    applications: ['Photovoltaik & Speicher', 'Windparks', 'Blockheizkraftwerke', 'Mieterstrom & Micro Grids', 'Wärmepumpen']
+  }
+  
+  var about = {
+    dcgy: ['Uber Discovergy', 'Karriere', 'Partner werden', 'Hilfe & Support', 'Dokumentation','Rechtliches'],
+    press: ['Team', 'Presse', 'Blog', 'Kontakt', 'Impressum']
+    }
+
+nav.Navigation.Navigation--white
+  div.Navigation-body
     section.Navigation-left
-      .Navigation-logo
-        a(href='#') Discovergy
-      .Navigation-links
-        //- .Navigation-dropdown
-        //-   span.Navigation-link
-        //-     i.Navigation-trigger
-        //-   .Navigation-menu
-        //-     a(href="#").Navigation-menuItem
-        //-       | Link
-        //-       a(href="#").Navigation-menuItem
-        //-         | Link II
-        a(href="#").Navigation-link
-          | Link III
-        a(href="#").Navigation-link
-          | Link IV        
+      h1.Navigation-logo
+        a(href='/') Discovergy
+      div.Navigation-links
+      
+        //- each link in navigationLinks
+        //-   a(href="#").Navigation-link
+        //-     = link
+            
+        div.Navigation-dropdown
+          span.Navigation-link
+            | Zähler
+            i.Navigation-trigger
+          div.Navigation-menu
+            each item in metering
+              a(href="javascript:void(0);").Navigation-menuItem
+                = item
+        
+        div.Navigation-dropdown
+          span.Navigation-link
+            | Funktionen
+            i.Navigation-trigger
+          div.Navigation-menu
+            each feature in features
+              a(href="javascript:void(0);").Navigation-menuItem
+                = feature
+            
+              
+        div.Navigation-dropdown
+          span.Navigation-link
+            | Lösungen
+            i.Navigation-trigger
+          div.Navigation-menu
+            each feature in solutions
+              a(href="javascript:void(0);").Navigation-menuItem
+                = feature 
+                      
+        a(href="javascript:void(0);").Navigation-link
+          | Über uns
+              
     section.Navigation-right
+      div.Navigation-links
+        a(href="javascript:void(0);").Navigation-button
+          | Demo
+        a(href="javascript:void(0);").Navigation-link
+          | Anmelden
+      div.Navigation-links.Navigation-links--mobile
+        a(href="javascript:void(0);").Navigation-link.Navigation-link--openMenu
+          | Menu
+        a(href="javascript:void(0);").Navigation-link--closeMenu
+          svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="20" height="20")
+            path(fill="#ffffff" d="M11.4,10l6.3-6.3c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0L10,8.6L3.7,2.3c-0.4-0.4-1-0.4-1.4,0 s-0.4,1,0,1.4L8.6,10l-6.3,6.3c-0.4,0.4-0.4,1,0,1.4s1,0.4,1.4,0l6.3-6.3l6.3,6.3c0.4,0.4,1,0.4,1.4,0s0.4-1,0-1.4L11.4,10z")
+            g(opacity="0.1")
+              path(d="M17,2c0.3,0,0.5,0.1,0.7,0.3c0.4,0.4,0.4,1,0,1.4L11.4,10l6.3,6.3c0.4,0.4,0.4,1,0,1.4 C17.5,17.9,17.3,18,17,18c-0.3,0-0.5-0.1-0.7-0.3L10,11.4l-6.3,6.3C3.5,17.9,3.3,18,3,18s-0.5-0.1-0.7-0.3c-0.4-0.4-0.4-1,0-1.4 L8.6,10L2.3,3.7c-0.4-0.4-0.4-1,0-1.4C2.5,2.1,2.7,2,3,2s0.5,0.1,0.7,0.3L10,8.6l6.3-6.3C16.5,2.1,16.7,2,17,2 M17,1 c-0.5,0-1,0.2-1.4,0.6L10,7.2L4.4,1.6C4,1.2,3.5,1,3,1S2,1.2,1.6,1.6c-0.8,0.8-0.8,2,0,2.8L7.2,10l-5.6,5.6c-0.8,0.8-0.8,2,0,2.8 C2,18.8,2.5,19,3,19s1-0.2,1.4-0.6l5.6-5.6l5.6,5.6C16,18.8,16.5,19,17,19c0.5,0,1-0.2,1.4-0.6c0.8-0.8,0.8-2,0-2.8L12.8,10l5.6-5.6 c0.8-0.8,0.8-2,0-2.8C18,1.2,17.5,1,17,1L17,1z")
+  
+  nav.Menu
+    div.Menu-body
+      div.Menu-section
+        div.Menu-items
+          div.Menu-itemsGroup
+            a(href="javascript:void(0);").Menu-item
+              | Plattform
+            a(href="javascript:void(0);").Menu-item
+              | Produkte
+            a(href="javascript:void(0);").Menu-item
+              | Losungen
+          div.Menu-itemsGroup
+            a(href="javascript:void(0);").Menu-item
+              | Uber uns
+            a(href="javascript:void(0);").Menu-item
+              | Blog
     
-    
+      div.Menu-section
+        div.Menu-items.u-textCenter
+          div.Menu-itemsGroup
+            a(href='javascript:void(0)').Menu-button
+              | Demo
+          div.Menu-itemsGroup
+            a(href='javascript:void(0)').Menu-item
+              | Anmelden
+                
+      div.Menu-section
+        h6.Menu-sectionTitle 
+          | Produkte
+        div.Menu-items
+          div.Menu-itemsGroup
+            each item in softwareProducts.products
+              a(href="javascript:void(0);").Menu-item.Menu-item--smallRegular
+                = item
+          div.Menu-itemsGroup
+            each item in softwareProducts.addons
+              a(href="javascript:void(0);").Menu-item.Menu-item--smallRegular
+                = item
+                
+        //- div.Menu-section
+        //-   h6.Menu-sectionTitle 
+        //-     | Lösungen
+        //-   div.Menu-items
+        //-     div.Menu-itemsGroup
+        //-       each item in solutionsMobile.applications
+        //-         a(href="javascript:void(0);").Menu-item.Menu-item--smallRegular
+        //-           = item 
+        //-     div.Menu-itemsGroup
+        //-       each item in solutionsMobile.solutions
+        //-         a(href="javascript:void(0);").Menu-item.Menu-item--smallRegular
+        //-           = item
+        //-           
+        //- div.Menu-section
+        //-   h6.Menu-sectionTitle 
+        //-     | Plattform
+        //-   div.Menu-items
+        //-     div.Menu-itemsGroup
+        //-       each item in platform.meters
+        //-         a(href="javascript:void(0);").Menu-item.Menu-item--smallRegular
+        //-           = item 
+        //-     div.Menu-itemsGroup
+        //-       each item in platform.metering
+        //-         a(href="javascript:void(0);").Menu-item.Menu-item--smallRegular
+        //-           = item
+                
+      div.Menu-section
+        div.Menu-items
+          div.Menu-itemsGroup
+            each item in about.dcgy
+              a(href="javascript:void(0);").Menu-item.Menu-item--small
+                = item 
+          div.Menu-itemsGroup
+            each item in about.press
+              a(href="javascript:void(0);").Menu-item.Menu-item--small
+                = item 
+        
   

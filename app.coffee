@@ -28,8 +28,8 @@ module.exports =
 
   extensions: [
     #js_pipeline(files: 'assets/js/*.js'),
-    browserify(files: ['assets/js/main.coffee', 'assets/js/fontDetect.js'], out: 'js/build.js'),
-    css_pipeline(files: 'assets/css/*.styl', 'assets/css/*.css', postcss:true),
+    browserify(files: ['assets/js/main.coffee', 'assets/js/fontDetect.js', 'assets/js/menu-button.js'], out: 'js/build.js'),
+    css_pipeline(files: 'assets/css/*.styl', 'assets/css/*.css', postcss: true),
     i18n(
       translations: 'i18n/*'
       viewExtension: 'jade'

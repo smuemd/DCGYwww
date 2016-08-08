@@ -24,7 +24,7 @@ $dcgy-color-black-disabled-hex ?= $dcgy-color-black-hint-hex
 $dcgy-color-black-divider-hex ?= #E5E5E5
 
 /* whites */
-$dcgy-color-white ?= #FFFFF
+$dcgy-color-white = #FFFFFF
 
 $dcgy-color-white-opacity-primary = 1
 $dcgy-color-white-opacity-secondary = 0.7
@@ -39,29 +39,57 @@ $dcgy-color-white-disabled ?= $dcgy-color-white-hint
 $dcgy-color-white-divider ?= rgba(255, 255, 255, $dcgy-color-black-opacity-divider);
 
 
-/* system fonts */$system-fonts = -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+/* system fonts */
+$system-fonts = -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
 /* Custom font stacks */
+$roboto-subset = Roboto-subset, $system-fonts;
 $roboto = Roboto, $system-fonts;
+$roboto-light = Roboto-Light, $system-fonts;
+$roboto-medium = Roboto-Medium, $system-fonts;
 
 /* Typography variables mapping*/
 
 /* base */
-$type-base-font-size = 100%;
-$type-line-height-ratio = 1.5 //line-height-ratio = 1.5
+$type-base-font-size = 100%; //16px
+$type-line-height-ratio = 1.5; //line-height-ratio = 1.5
 //$heading-ratio = $golden
-$type-target-elements = true
+$type-target-elements = true;
 
 /* body */
-$type-body-font = $roboto // $body-font = $roboto, $system-fonts
-$type-body-font-weight = normal //400
+$type-body-font-subset = $roboto-subset;
+$type-body-font = $roboto; // $body-font = $roboto, $system-fonts
+$type-body-font-weight = normal; //400
 $type-body-color = $dcgy-color-black-primary-hex; // $body-color = #212121 //#666
-$type-link-color = #3CC76A
+
+/* links */
+/* @extends body */
+$type-link-font = $roboto-medium;
+$type-link-font-weight = 500;
+$type-link-color = #3CC76A;
 
 /* headings */
 $type-heading-font = $roboto; // $heading-font = $helvetica
 $type-heading-font-weight = normal; //400
 $type-heading-color = $dcgy-color-black-secondary-hex; // $heading-color = #111
+
+/* titles */
+/* Medium font weight as opposed to regular heading-font-weigts */
+$type-title-font = $roboto-medium; // $heading-font = $helvetica
+$type-title-font-weight = 500;
+$type-title-color = $dcgy-color-black-primary-hex; // $heading-color = #111
+
+/* menus & links */
+$type-menu-font = $roboto-medium
+$type-menu-font-weight = 500;
+type-menu-color = $dcgy-color-black-primary-hex;
+
+
+/*light touch */
+$type-light-font = $roboto-light;
+$type-light-font-weight = 300;
+$type-light-color = $dcgy-color-black-primary-hex;
+
 
 /* Helpers */
 
@@ -193,7 +221,7 @@ apply-font($font = $system-fonts, $weight = false, $style = false)
 type-html($color = $type-body-color, $opacity = false)
   apply-font($system-fonts)
   color: $color
-  font-size: $type-base-font-size // 16px
+  font-size: $type-base-font-size // 100% === 16px
   line-height: ($type-line-height-ratio) // 1,5 = 24px base line height
 
   if $opacity
@@ -217,7 +245,7 @@ type-display4()
   font-size: 112px;
   font-size: 7rem;
   /* overwrite settings via type-display */
-  font-weight: 300;
+  font-weight: $type-light-font-weight; //300
   letter-spacing: -0.04em;
   line-height: 1;
 
@@ -246,7 +274,7 @@ type-headline()
 type-title()
   font-size: 20px;
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: $type-title-font-weight; // 500
   letter-spacing: 0.02em;
   line-height: 1;
 
@@ -277,13 +305,13 @@ type-body1()
 type-menu()
   font-size: 14px;
   font-size: rem(14px)// 14px
-  font-weight: 500;
+  font-weight: $type-menu-font-weight; // 500
   letter-spacing: 0;
   line-height: 1;
 
 type-button()
   type-menu()
-  cursor: pointer
+  //cursor: pointer
   display: block
   margin: em(6px, context: @font-size);
   margin: rem(6px);
@@ -300,17 +328,15 @@ type-caption()
 type-blockquote()
   font-size: 1.5rem; // 24px
   font-style: italic;
-  font-weight: 300;
+  font-weight: $type-light-font-weight; // 300
   line-height: (32 / 24); // 2rem //32px
   letter-spacing: 0.08em;
   margin-bottom: 1em;
   position: relative;
-
   &:before
     position: absolute;
     left: -0.5em;
     content: '“';
-
   &:after
     content: '”';
     margin-left: -0.05em;
@@ -326,7 +352,8 @@ type-pre()
     padding: 0
 
 type-code()
-  font-family: $monospace;
+  // https://www.sitepoint.com/eight-definitive-font-stacks-2/
+  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace, monospace;
   padding: ($type-line-height-ratio * .05)em ($type-line-height-ratio * .15)em;
   line-height: 0;
 
@@ -336,8 +363,7 @@ type-abbr()
   text-decoration: none;
 
 type-dt()
-  // color: $type-heading-color
-  font-weight: 500;
+  font-weight: $type-title-font-weight; // 500
 
 type-fieldset()
   padding: type-vr-block(.5) type-vr-block() type-vr-block(); // 0.75em 1.5em 1.5em;
@@ -350,7 +376,7 @@ type-fieldset()
 
 type-legend()
   //color: $type-heading-color
-  font-weight: 500
+  font-weight: $type-title-font-weight; // 500
 
 type-label()
   display: block
@@ -372,7 +398,7 @@ type-table()
 
 type-th()
   //color: $type-heading-color;
-  font-weight: 500
+  font-weight: $type-title-font-weight; // 500
   text-align: left
 
   padding: type-vr-block((1/3)) type-vr-block(0.5); // 4px 8px
@@ -407,11 +433,10 @@ if $type-target-elements
 
     html
       type-html()
+    html.fonts-stage1
+      font-family: $type-body-font-subset
     html.fonts-loaded
       font-family: $type-body-font
-    body
-      max-width: 1008px
-      margin: auto;
 
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
     a, abbr, acronym, address, big, cite, code,
@@ -424,8 +449,10 @@ if $type-target-elements
       type-reset()
 
     a
-      color: $type-link-color
-      font-weight: 500
+      color: $type-link-color;
+      font-weight: $type-link-font-weight; // 500
+    .fonts-loaded a
+      font-family: $type-link-font
 
     p, blockquote, pre,
     address,
@@ -460,16 +487,21 @@ if $type-target-elements
       // //type-title() // avoid letter-spacing
       font-size: 20px;
       font-size: 1.25rem;
+      font-weight: $type-title-font-weight; // 500
       line-height: unit(em(24px, @font-size), ''); // Note: bumped linehight to 24px from 1
 
     h6
       // //type-subhead1() // avoid letter-spacing
       font-size: 16px;
       font-size: 1rem;
-      font-weight: 500
+      font-weight: $type-title-font-weight; // 500
       line-height: (24 / 16);
 
-     mark
+    .fonts-loaded h5,
+    .fonts-loaded h6
+      font-family: $type-title-font;
+
+    mark
       background-color: #f4ff81;
 
     address {
@@ -479,6 +511,8 @@ if $type-target-elements
 
     blockquote
       type-blockquote()
+    .fonts-loaded blockquote
+      font-family: $type-light-font; //TODO: $robto-LightItaic
 
     pre
       type-pre()
@@ -495,6 +529,8 @@ if $type-target-elements
 
     dt
       type-dt()
+    .fonts-loaded dt
+      font-family: $type-title-font;
 
     // ul
     //   padding-left: 1.1em
@@ -509,6 +545,8 @@ if $type-target-elements
 
     legend
       type-legend();
+    .fonts-loaded legend
+      font-family: $type-title-font
 
     label
       type-label()
@@ -524,6 +562,8 @@ if $type-target-elements
 
     th
       type-th()
+    .fonts-loaded th
+      font-family: $type-title-font;
 
 
     td
@@ -547,6 +587,8 @@ if $type-target-elements
 
 .Type--display4
   type-display4()
+.fonts-loaded .Type--display4
+  font-family: $type-light-font
 
 .Type--display3
   type-display3()
@@ -562,6 +604,8 @@ if $type-target-elements
 
 .Type--title
   type-title()
+.fonts-loaded .Type--title
+  font-family: $type-title-font;
 
 .Type--subhead2
   type-subhead2()
@@ -577,6 +621,8 @@ if $type-target-elements
 
 .Type--menu
   type-menu()
+.fonts-loaded .Type--menu
+  font-family: $type-menu-font;
 
 .Type--caption
   type-caption()
