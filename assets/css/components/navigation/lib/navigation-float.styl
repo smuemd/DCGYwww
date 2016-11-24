@@ -1,0 +1,213 @@
+/* @define Navigation */
+
+/* Dependencies ?*/
+
+/**
+ * @import rem()
+ * @import typography ( icl. variables)
+ */
+
+.Navigation
+  z-index: 10;
+  position: relative
+
+.Navigation-body
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  //width: 980px;
+  padding: rem(32px) 0 rem(40px) 0;
+  margin: 0 auto;
+  max-width: rem((980 + 32)px)
+
+.Navigation-left
+  display: flex;
+  align-items: center
+
+.Navigation-logo
+  margin: 0 32px 0 0;
+.Navigation-logo a
+  background-image: url('/img/discovergy-logo.png')
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: block;
+  height: 24px;
+  overflow: hidden //add
+  text-indent: -9999px;
+  width: 182px;
+
+.Navigation-links
+    display: flex;
+    align-items: center
+
+//NOTE: Stype Link padding and margines here
+.Navigation-links>*
+    margin-right: 16px
+    type-menu()
+    //padding: em(11px, 14px) 1em
+    background-color: lighten(blue, 90%)
+    transition: opacity .2s ease-in;
+    white-space: nowrap;
+    opacity: .7
+    &:hover
+      opacity: 1
+
+.Navigation-link,
+.Navigation-link:hover,
+.Navigation-menuItem
+  color: $dcgy-color-black-primary-hex;
+  text-decoration: none
+
+.Navigation-link
+  //type-menu()
+  // transition: opacity .2s ease-in;
+  // white-space: nowrap;
+  // opacity: .7
+
+  // &:hover
+  //   opacity: 1
+
+.Navigation-dropdown
+  cursor: pointer;
+  position: relative
+
+.Navigation-trigger
+  background: url(/img/caret.svg) 12px 0 no-repeat
+  cursor: pointer;
+  display: inline-block;
+  height: 6px;
+  position: relative;
+  vertical-align: middle;
+  width: 24px;
+
+/* dropdown menu */
+.Navigation-menu
+  position: absolute;
+  top: 30px;
+  left: 45px;
+  z-index: -1;
+  margin-top: 0;
+  padding: 10px 0;
+  background: #fff;
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateX(-50%);
+  pointer-events: none;
+  min-width: 80px
+
+  &.open
+    box-shadow: 0 1px 3px rgba(205, 190, 173, .53);
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 10
+
+.Navigation-menuItem
+  display: block;
+  line-height: 27px;
+  font-size: 14px;
+  white-space: nowrap;
+  padding: 0 25px 0 15px
+
+  &:hover
+    color: #3CC76A;
+    background: rgba(60, 199, 106, .05);
+    text-decoration: none
+
+.Navigation-button
+  background-color: transparent;
+  border-radius: 50px;
+  border: 1px solid #3CC76A;
+  color: #3CC76A;
+  display: inline-block;
+  font-family: 'Freight Sans Small Caps', Verdana, Geneva, sans-serif;
+  font-size: 16px;
+  line-height: 16px;
+  padding: 9px 15px;
+  text-decoration: none
+
+  &:hover
+    text-decoration: none
+
+/*
+.Navigation
+  z-index: 100;
+  position: relative;
+
+//.Navigation--modifier
+
+.Navigation-body
+  group()
+  margin: auto;
+  max-width: rem((980 + 32)px)
+  padding: rem(32px) rem(16px) rem(40px) rem(16px)
+
+.Navigation-left
+  float: left;
+  group()
+
+.Navigation-right
+  float: right;
+  group()
+
+.Navigation-logo
+  float: left;
+  margin: 0 32px 0 0;
+
+.Navigation-logo a
+  background-image: url('/img/Discovergy-logo.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  //color: transparent;
+  display: block;
+  //font: 0/0 a;
+  height: 24px;
+  opacity: 0.88;
+  overflow: hidden
+  text-indent: -9999px;
+  //text-shadow: none;
+  width: 182px;
+
+.Navigation-links
+  float: left;
+  group()
+.Navigation-links>*
+  //margin-right: 20px
+  type-menu()
+  border-radius: em(4px, @font-size)
+  //color: $dcgy-color-black-disabled-hex
+  color: $dcgy-color-black-primary-hex
+  padding: em(11px, 14px) em(16px, 14px);
+  text-decoration: none;
+  display: inline;
+
+  &:first-child
+    //margin-left: rem(-8px);
+
+  &:last-child
+    //margin-right: rem(-16px);
+
+  &:hover
+    color: $type-link-color;
+    background-color: lighten($type-link-color, 90%);
+
+  &:focus
+    background-color: lighten($type-link-color, 90%);
+    box-shadow: inset 0 0 0 1px rgba(8, 153, 114, 0.02);
+
+.Navigation-dropdown
+  cursor: pointer;
+  line-height: 0;
+  position: relative;
+  display: inline;
+  group()
+
+.Navigation-trigger
+    background: url(/img/caret.svg) 8px 4px no-repeat
+    cursor: pointer;
+    display: inline-block;
+    height: 16px;
+    position: relative;
+    vertical-align: middle;
+    width: 16px;
+    //-webkit-transform: scale(.8);
+    //transform: scale(.8);
