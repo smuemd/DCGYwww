@@ -219,7 +219,7 @@ apply-font($font = $system-fonts, $weight = false, $style = false)
     font-style: $style
 
 type-html($color = $type-body-color, $opacity = false)
-  apply-font($system-fonts)
+  apply-font($system-fonts)// ($roboto-subset)
   color: $color
   font-size: $type-base-font-size // 100% === 16px
   line-height: ($type-line-height-ratio) // 1,5 = 24px base line height
