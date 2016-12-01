@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  include partials/_navigation.jade
+  
+  Section.Hero
+    .Layout.Layout--fixed
+      .Hero-content.u-borderBottom
+        h1.Hero-title
+          | Intelligente Energie für Ihr Zuhause.
+        h2.Hero-tagline
+          | Revolutionieren Sie Ihre Energieversogung mit Discovergy.
+        a(href="vpod").Hero-button
+          | Jetzt loslegen
+        a(href="").Hero-link
+          | oder Kontakt aufnehmen
+
+  Section.Page
+    .Layout.Layout--fixed 
+      h3.Page-title 
+        | Werden Sie Energie intelligent.
+      p.Page-subtitle 
+        | Some things never change this is some good ol whatever.
+      div
+        .Feature
+          h6.Feature-headline
+            | Tolles Feature
+          p.Feature-body
+            | Do this do that whatever.
