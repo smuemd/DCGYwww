@@ -64,8 +64,8 @@ $type-body-color = $dcgy-color-black-primary-hex; // $body-color = #212121 //#66
 
 /* links */
 /* @extends body */
-$type-link-font = $roboto-medium;
-$type-link-font-weight = 500;
+$type-link-font = $roboto;
+$type-link-font-weight = normal;
 $type-link-color = #3CC76A;
 
 /* headings */
@@ -219,7 +219,7 @@ apply-font($font = $system-fonts, $weight = false, $style = false)
     font-style: $style
 
 type-html($color = $type-body-color, $opacity = false)
-  apply-font($system-fonts)// ($roboto-subset)
+  apply-font($roboto-subset) //($system-fonts)
   color: $color
   font-size: $type-base-font-size // 100% === 16px
   line-height: ($type-line-height-ratio) // 1,5 = 24px base line height
