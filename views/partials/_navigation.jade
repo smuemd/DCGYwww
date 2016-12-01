@@ -42,9 +42,14 @@
   }
   
   var solutions = [
-  'Energiemonitoring', 'Branchenlösungen',
-  'Mobilfunkbetreiber', 'Energieerzeugung', 'Photovoltaik', 'BKHW'
-  ]
+  {text:'Haushalte', link:'/households.html'},
+  {text:'Energiemonitoring', link:'javascript:void(0);'},
+  {text:'Branchenlösungen', link:'javascript:void(0);'},
+  {text:'Mobilfunkbetreiber', link:'javascript:void(0);'},
+  {text:'Energieerzeugung', link:'javascript:void(0);'},
+  {text:'Photovoltaik', link:'javascript:void(0);'},
+  {text:'BKHW', link:'javascript:void(0);'}
+  ];
   
   var solutionsMobile = {
     solutions: ['Private Haushalte', 'Gerwerbe & Industrie', 'Energieversorger', 'Verteilnetzbetreiber'],
@@ -91,9 +96,9 @@ nav.Navigation.Navigation--white
             | Lösungen
             i.Navigation-trigger
           div.Navigation-menu
-            each feature in solutions
-              a(href="javascript:void(0);").Navigation-menuItem
-                = feature 
+            each solution in solutions
+              a(href=solution.link).Navigation-menuItem
+                =solution.text
                       
         a(href="javascript:void(0);").Navigation-link
           | Über uns
