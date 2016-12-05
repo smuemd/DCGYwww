@@ -5,7 +5,7 @@ block content
   
   Section.Hero
     .Layout.Layout--fixed
-      .Hero-content.u-borderBottom
+      .Hero-content
         h1.Hero-title
           | Intelligente Energie für Ihr Zuhause.
         h2.Hero-tagline
@@ -16,14 +16,85 @@ block content
           | oder Kontakt aufnehmen
 
   Section.Page
-    .Layout.Layout--fixed 
-      h3.Page-title 
-        | Werden Sie Energie intelligent.
-      p.Page-subtitle 
-        | Some things never change this is some good ol whatever.
-      div
-        .Feature
-          h6.Feature-headline
-            | Tolles Feature
-          p.Feature-body
-            | Do this do that whatever.
+      .Layout.Layout--fixed
+        .Page-row.Page-content.u-borderTop
+          //.Page-prose.Page-prose--left
+          .Page-prose.Page-prose--center
+            h3.Page-title.Page-title--center
+              | Werden Sie Energie intelligent.
+            p.Page-subtitle.Page-subtitle--center
+              | Mit Discovergy machen Sie Ihren Energie&shy;verbrauch intelligen&shy;ter.<br>Für ein besseres und nachhaltiges Leben zuhause.    
+            
+          //.Page-image
+          .Page-column.Page-column--fullWidth
+            .Page-image.Page-image--center
+              img(src="https://placeholdit.imgix.net/~text?txtsize=56&txt=932%C3%97592&w=932&h=592")
+          .Page-features.Page-column.Page-column--fullWidth.Page-row
+          
+            div.Feature.Feature--1of3
+              h6.Feature-title
+                | Nachhaltig Energie und Kosten sparen.
+              p.Feature-body
+                | Durch perfektes Energiemenagement vermeiden Sie unnötigen Verbrauch und sparen jeden Monat Geld.
+                
+            div.Feature.Feature--1of3
+              h6.Feature-title
+                | Schluß mit hohen Nachzahlungen.
+              p.Feature-body
+                | Mit Discovergy wissen Sie immer ganz genau wieviel Energie Sie verbrauchen. Keine Überraschungen mehr auf Ihrer Stromrechnung.
+                
+            div.Feature.Feature--1of3
+              h6.Feature-title
+                | Ideal für PV, BHKW und Batteriespeicher.
+              p.Feature-body
+                | Überwachen Sie PV-Anlagen, BHKWs und Stromspeicher in Echtzeit und optimieren Sie so Ihren Eigenverbrauch.
+            
+            div.Feature.Feature--1of3
+              h6.Feature-title
+                | Nachhaltig Energie und Kosten sparen.
+              p.Feature-body
+                | Durch perfektes Energiemenagement vermeiden Sie unnötigen Verbrauch und sparen jeden Monat Geld.
+                
+            div.Feature.Feature--1of3
+              h6.Feature-title
+                | Schluß mit hohen Nachzahlungen.
+              p.Feature-body
+                | Mit Discovergy wissen Sie immer ganz genau wieviel Energie Sie verbrauchen. Keine Überraschungen mehr auf Ihrer Stromrechnung.
+                
+            div.Feature.Feature--1of3
+              h6.Feature-title
+                | Ideal für PV, BHKW und Batteriespeicher.
+              p.Feature-body
+                | Überwachen Sie PV-Anlagen, BHKWs und Stromspeicher in Echtzeit und optimieren Sie so Ihren Eigenverbrauch.
+
+  Section.Page
+    .Layout.Layout--fixed
+      .Page-row.Page-content.u-borderTop
+        .Page-column.pushRight.Page-column--1of2
+          .Page-image.Page-image--right 
+            img(src="https://discovergy.com/images/pages/functions/Discovergy_Dynamische-Preise.png")
+        .Page-column.pushLeft.Page-column--1of2.Page-prose.Page-prose--left
+          h3.Page-title
+            | Erleben Sie Energie in Echtzeit.
+          p.Page-subtitle
+            | Verfolgen Sie, wieviel Energie Sie zuhause gerade benötigen.
+            |  Entdecken Sie, wie Ihr sich Ihr Energie&shy;verbrauch über die Zeit
+            |  ent&shy;wickelt, um effektiv auf unnötigen Verbrauch und Strom&shy;fresser
+            |  im Haus&shy;halt zu reagieren.
+          
+          .Page-features
+            .Feature
+              h6.Feature-title
+                | Verbrauch und Erzeugung in Echtzeit.
+              p.Feature-body
+                | Sehen Sie jeder&shy;zeit Ihren moment&shy;anen Energie&shy;verbrauch sowie die
+                |  damit verbunden Kosten. Verfolgen Sie live, wie das An- und
+                |  Aus&shy;schalten von Geräten Ihren Strom&shy;ver&shy;brauch be&shy;ein&shy;flusst.
+
+            .Feature
+              h6.Feature-title
+                | Ihr gesamter Stromverbrauch auf einen Blick.
+              p.Feature-body
+                | Betrach&shy;ten und ver&shy;gleichen Sie Ihren Strom&shy;ver&shy;brauch über
+                |  be&shy;liebige Zeit&shy;räume. Entdecken Sie dabei Verhaltens&shy;muster und Trends.
+                
