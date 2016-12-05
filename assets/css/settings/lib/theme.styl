@@ -9,9 +9,34 @@
  * Breakpoints
  */
 
-@custom-media --sm-viewport (min-width:320px) and (max-width:640px);
-@custom-media --md-viewport (min-width:640px) and (max-width:960px);
-@custom-media --lg-viewport (min-width:960px);
+ /**
+  *
+  * tookapic:
+  * @media screen and (max-width: 1023px) and (min-width: 720px) //medium
+  * @media screen and (min-width: 1024px) //large
+  *
+  * squareup images
+  * @media (min-width: 480px) => small
+  * @media (min-width: 718px) => medium
+  * @media (min-width: 1024px) => large
+  * @media (min-width: 1292px) => extra-large
+  *
+  *
+  *squareup layout
+  * from 0 to 374px =>  layout width = 276 marging auto
+  * @media (min-width: 374px) => layout width = 324
+  * @media (min-width: 480px) => layot width = 424
+  * @media (min-width: 718px) => layout width = 680px
+  * @media (min-width: 1024px) => layout width = 868px
+  * @media (min-width: 1292px) => layout width: 1016px
+  *
+  */
+css {
+  @custom-media --sm-viewport (min-width:320px) and (max-width:640px);
+  @custom-media --md-viewport (min-width:640px) and (max-width:960px);
+  @custom-media --lg-viewport (min-width:960px);
+}
+
 
 /**
  * Colors

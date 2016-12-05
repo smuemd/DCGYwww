@@ -5,9 +5,9 @@
 
 // /* Load global SUIT Css packages */
 @css {
-  @import 'suitcss-base'
-  @import 'suitcss-utils'
-  /* @import 'suitcss-components'; */
+  @import 'suitcss-base';
+  @import 'suitcss-utils';
+  @import 'suitcss-components'
 }
 
 /* Load settings */
@@ -17,16 +17,20 @@
 @import './components/base'
 
 /* Utilities */
-@import './components/utils-border'
+@import './utilities/utils-border'
 
 /* Components */
-@import './components/typography'
+@import './components/components-typography'
 
-@require './components/layout'
+@require './components/components-layout'
 
-@import './components/navigation'
+@import './components/components-navigation'
 
-@import './components/hero'
+@import './components/components-hero'
+
+@import './components/components-page'
+
+@import './components/components-feature'
 
 
 //padding: 50px
