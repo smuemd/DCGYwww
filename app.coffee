@@ -12,7 +12,8 @@ autoprefixer = require('autoprefixer')
 #bemLinter = require('postcss-bem-linter')
 #rucksack = require('rucksack-css');
 lost = require 'lost'
-i18n = require 'roots-i18n'
+#i18n = require 'roots-i18n'
+yaml = require 'roots-yaml'
 
 module.exports =
   ignores: [
@@ -22,18 +23,24 @@ module.exports =
     '.gitignore',
     'ship.*conf',
     'i18n/*',
+    'data/**/*.*',
     'assets/css/settings/**/*.*',
-    'assets/css/components/**/*.*'
+    'assets/css/components/**/*.*',
+    'assets/css/utilities/**/*.*'
   ]
+
+  locals:
+    test: 'test'
 
   extensions: [
     #js_pipeline(files: 'assets/js/*.js'),
+    yaml(),
     browserify(files: ['assets/js/main.coffee', 'assets/js/fontDetect.js', 'assets/js/menu-button.js'], out: 'js/build.js'),
-    css_pipeline(files: 'assets/css/*.styl', 'assets/css/*.css', postcss: true),
-    i18n(
-      translations: 'i18n/*'
-      viewExtension: 'jade'
-    )
+    css_pipeline(files: 'assets/css/*.styl', 'assets/css/*.css', postcss: true)
+    #i18n(
+    #  translations: 'i18n/*'
+    #  viewExtension: 'jade'
+    #)
   ]
 
   stylus:
