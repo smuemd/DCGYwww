@@ -22,25 +22,17 @@ module.exports =
     '**/_*',
     '.gitignore',
     'ship.*conf',
-    'i18n/*',
     'data/**/*.*',
     'assets/css/settings/**/*.*',
     'assets/css/components/**/*.*',
     'assets/css/utilities/**/*.*'
   ]
 
-  locals:
-    test: 'test'
-
   extensions: [
-    #js_pipeline(files: 'assets/js/*.js'),
     yaml(),
+    #js_pipeline(files: 'assets/js/*.js'),
     browserify(files: ['assets/js/main.coffee', 'assets/js/fontDetect.js', 'assets/js/menu-button.js'], out: 'js/build.js'),
     css_pipeline(files: 'assets/css/*.styl', 'assets/css/*.css', postcss: true)
-    #i18n(
-    #  translations: 'i18n/*'
-    #  viewExtension: 'jade'
-    #)
   ]
 
   stylus:

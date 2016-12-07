@@ -83,14 +83,19 @@ block content
       tr
         td Los Angeles
         td CA
-        td USA<
+        td USA
       tr
         td Ashland
         td KY
         td USA
 
   div.u-textCenter
-    h6 {{ landing.hero.title }}
-    div {{ landing.hero.subtitle}}
+    //h6 {{ landing.hero.title }}
+    //div {{ landing.hero.subtitle }}
+  ul#list
+    each ext in data.extensions
+      li: a(href=ext.link, target='_blank')
+        h4= ext.title
+        p= ext.description
 
   
