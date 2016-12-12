@@ -3,14 +3,14 @@ Section.Page
     .Page-row.Page-content.u-borderTop
       
       .Page-column.pushRight.Page-column--1of2
-        .Page-image.Page-image--right 
-          img(src="https://discovergy.com/images/pages/functions/Discovergy_Dynamische-Preise.png")
+        .Page-image 
+          img(src='#{data.households.technology.image.url}')
       
       .Page-column.pushLeft.Page-column--1of2.Page-prose.Page-prose--left
         h3.Page-title
-          !=data.households.realtime.title
+          !=data.households.technology.title
         p.Page-subtitle
-          !=data.households.realtime.subtitle
+          !=data.households.technology.subtitle
         
         .Page-features
           each feature in data.households.realtime.features

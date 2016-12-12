@@ -1,0 +1,45 @@
+# Page image
+image:
+  url: 'https://discovergy.com/images/pages/functions/Discovergy_Analyse-Tools.png'
+  caption: 'Detaillierte Verbrauchsanalysen'
+
+# Page prose
+# TODO: prose urls
+prose:
+  - title: 'Optimieren Sie Ihre Energieversorgung langfristig.'
+    subtitle: >
+              Analysieren Sie den Verbrauch der vergangenen Tage, Wochen oder
+              Monate. Beginnen Sie mit der kontinuierlichen Optimierung Ihres
+              Zuhauses.
+
+  - title: 'Perfekt im Zusammenspiel mit Solaranlage, BHKW und Batteriespeicher.'
+    subtitle: >
+              Nehmen Sie Ihre Energieversorgung selbst in die Hand. Mit
+              Discovergy analysieren Sie Produktion und Verbrauch gleichzeitig
+              und in Echtzeit. So erhöhen Sie die Erträge Ihres Zuhause-
+              Kraftwerks und optimieren Ihren Eigenverbrauch.
+
+# Page features
+# TODO: Feature links
+features:
+  - title: 'Langfristige Verbrauchsmuster und Trends entdecken.'
+    body: >
+          Verschaffen Sie sich einen 360-Grad Blick auf Ihren aktuellen
+          Verbrauch und die vergangenen Tage, Wochen, Monate und Jahre.
+
+  - title: 'Phantomstrom erkennen und abstellen.'
+    body: >
+          Finden Sie alle Geräte, die ausgeschaltet sind aber trotzdem Strom
+          verbrauchen. So vermeiden Sie unnötige Verluste durch Stand-by.
+
+  - title: 'Den Energieverbrauch einzelner Geräte analysieren.'
+    body: >
+          Discovergy schlüßelt den Verbrauch und die Kosten für einzelne
+          Haushaltsgeräte auf. Nutzen Sie völlig neue Möglichkeiten für eine
+          intelligente und zielgerichtete Steuerung Ihrer Energieversorgung.
+
+  - title: 'Energiekosten im Voraus ermitteln.'
+    body: >
+          Keine bösen Überrauschungen mehr am Ende des Jahres: Mit Discovergy
+          wissen Sie immer auf den Cent genau, was auf Ihrer Stromrechnung
+          stehen wird.

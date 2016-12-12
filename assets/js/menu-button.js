@@ -1,11 +1,11 @@
 $(document).ready(function () {
-  var menuActive = false;
+  var menuActive = false
 
   $('.Navigation-link--openMenu, .Navigation-link--closeMenu').click(function () {
-    $(':root').toggleClass('menuIsActive');
-    menuActive = menuActive ? false : true;
-    console.log(menuActive);
-  });
+    $(':root').toggleClass('menuIsActive')
+    menuActive = menuActive ? false : true
+    console.log(menuActive)
+  })
 
   // $(".Navigation-link--closeMenu").click(function () {
   //     $(":root").toggleClass('menuIsActive');
@@ -13,17 +13,16 @@ $(document).ready(function () {
   //     console.log("mA = false");
   // });
 
-  $(document).on('click', function(event) {
-    console.log($(event.target).closest('.Menu, .Navigation'));
+  $(document).on('click', function (event) {
+    console.log($(event.target).closest('.Menu, .Navigation'))
     if (menuActive && $(event.target).closest('.Menu, .Navigation').length === 0) {
-      $(":root").toggleClass('menuIsActive');
-      menuActive = false;
-  }
-});
+      $(":root").toggleClass('menuIsActive')
+      menuActive = false
+    }
+  })
+})
 
-});
-
-//if (!event.target.matches('.dropbtn'))
+// if (!event.target.matches('.dropbtn'))
 // var body = document.body,
 //     overlay = document.querySelector('.overlay'),
 //     overlayBtts = document.querySelectorAll('button[class$="overlay"]');

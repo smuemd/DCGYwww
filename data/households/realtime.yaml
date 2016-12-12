@@ -1,0 +1,28 @@
+# Page image
+image:
+  url: 'https://discovergy.com/images/pages/functions/Discovergy_Dynamische-Preise.png'
+  caption: 'Dynamic Realtime Energy Monitoring'
+
+# Page prose
+# TODO: prose urls
+title:  'Erleben Sie Energie in Echtzeit.'
+subtitle: >
+          Ver&shy;folgen Sie, wieviel Energie Sie zu&shy;hause gerade be&shy;nötigen.
+          Entdecken Sie, wie  sich Ihr Ener&shy;gie­&shy;ver&shy;brauch über die Zeit
+          ent­&shy;wickelt, um effektiv auf un&shy;nötigen Ver&shy;brauch und Strom­&shy;fresser im
+          Haus­&shy;halt zu reagieren.
+
+
+# Page features
+# TODO: Feature links
+features:
+  - title: 'Verbrauch und Erzeugung in Echtzeit.'
+    body: >
+          Sehen Sie jeder­zeit Ihren moment­anen Energie­verbrauch so&shy;wie die damit
+          verbunden Kosten. Verfolgen Sie live, wie das An- und Aus­schalten
+          von Geräten Ihren Strom­ver­brauch be­ein­flusst.
+
+  - title: 'Ihr gesamter Stromverbrauch auf einen Blick.'
+    body: >
+          Betrach­ten und ver­gleichen Sie Ihren Strom­ver­brauch über be­liebige
+          Zeit­räume. Entdecken Sie dabei Verhaltens­muster und Trends.

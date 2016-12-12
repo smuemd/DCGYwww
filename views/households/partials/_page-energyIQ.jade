@@ -4,49 +4,20 @@ Section.Page
         //.Page-prose.Page-prose--left
         .Page-prose.Page-prose--center
           h3.Page-title.Page-title--center
-            | Werden Sie Energie intelligent.
+            =data.households.energyIQ.title
           p.Page-subtitle.Page-subtitle--center
-            | Mit Discovergy machen Sie Ihren Energie&shy;verbrauch intelligen&shy;ter.<br>Für ein besseres und nachhaltiges Leben zuhause.    
+            =data.households.energyIQ.subtitle
           
         //.Page-image
         .Page-column.Page-column--fullWidth
           .Page-image.Page-image--center
-            img(src="https://placeholdit.imgix.net/~text?txtsize=56&txt=932%C3%97592&w=932&h=592")
+            img(src='#{ data.households.energyIQ.image.url }')
         
         .Page-features.Page-column.Page-column--fullWidth.Page-row
-        
-          div.Feature.Feature--1of3
-            h6.Feature-title
-              | Nachhaltig Energie und Kosten sparen.
-            p.Feature-body
-              | Durch perfektes Energiemenagement vermeiden Sie unnötigen Verbrauch und sparen jeden Monat Geld.
-              
-          div.Feature.Feature--1of3
-            h6.Feature-title
-              | Schluß mit hohen Nachzahlungen.
-            p.Feature-body
-              | Mit Discovergy wissen Sie immer wie&shy;viel Energie Sie verbrauchen. Keine Über&shy;rasch&shy;ungen mehr auf Ihrer Stromrechnung.
-              
-          div.Feature.Feature--1of3
-            h6.Feature-title
-              | Ideal für PV, BHKW und Batteriespeicher.
-            p.Feature-body
-              | Überwachen Sie PV-Anlagen, BHKWs und Stromspeicher in Echtzeit und optimieren Sie so Ihren Eigenverbrauch.
           
-          div.Feature.Feature--1of3
-            h6.Feature-title
-              | Kompatibel mit allen Stromversorgern.
-            p.Feature-body
-              | Energie-Intelligenz mit Discovergy funktioniert deutschlandweit,  auch mit Ihrem bisherigen Stromversorger.
-              
-          div.Feature.Feature--1of3
-            h6.Feature-title
-              | Mehr Sicherheit zu jeder Zeit.
-            p.Feature-body
-              | Erhalten Sie Benachrichtigungen direkt auf Ihr Handy. So gehen Sie immer sicher, dass alles bei Ihnen Zuhause in Ordnung ist.
-              
-          div.Feature.Feature--1of3
-            h6.Feature-title
-              | Werden Sie unabhängig.
-            p.Feature-body
-              | Ihre Daten gehören Ihnen. Mit Discovergy betreiben Sie Ihren Stromzähler unab-hängig vom Energieversorger.
+          each feature in data.households.energyIQ.features
+            div.Feature.Feature--1of3
+              h6.Feature-title
+                =feature.title
+              p.Feature-body
+                =feature.body

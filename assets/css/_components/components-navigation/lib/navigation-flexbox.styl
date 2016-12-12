@@ -1,0 +1,406 @@
+/* @define Navigation */
+
+/* Dependencies ?*/
+
+/**
+ * @import rem()
+ * @import typography ( icl. variables)
+ */
+
+.menuIsActive body
+  overflow-y: hidden;
+  //+above(824px)
+  @media (--lg-viewport)
+    overflow-y: scroll;
+
+.Navigation
+  z-index: 10;
+  position: relative; //or fixec below 825px
+  top: 0;
+  left: 0;
+  right: 0;
+
+.menuIsActive .Navigation
+  position:fixed //safari fix
+  background-color: #1b2126
+
+.Navigation-body
+  background-color: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 980px;
+  margin: 0 rem(16px);
+  padding: rem(16px) 0;
+  +above(824px)
+    padding: rem(26px) 0; // Segment padding: 15px 30px;
+  +above(1024px)
+    margin: 0 auto;
+
+
+.Navigation-left,
+.Navigation-right
+  display: flex;
+  align-items: center
+
+.Navigation-logo
+  margin: 0 32px 0 0
+
+.Navigation-logo a
+  background-image: url('/img/discovergy-logo.png')
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: block;
+  height: 24px;
+  overflow: hidden //add
+  text-indent: -9999px;
+  width: 182px
+
+.Navigation-links
+  display: flex;
+  align-items: center;
+  +below(824px)
+    display: none
+
+.Navigation-links--mobile
+  display: flex;
+  align-items: center
+  +above(824px)
+    display: none
+
+//.Navigation-links>*
+  //margin-right: 16px //segment
+
+.Navigation-dropdown
+  //cursor: pointer; //segment
+  cursor: default;
+  line-height: 0 // segment
+  text-transform: none;
+  position: relative;
+  type-reset()
+  &:focus
+    outline: none
+
+.Navigation-dropdown:hover .Navigation-menu
+  visibility: visible;
+
+.Navigation-link,
+.Navigation-menuItem
+  color: $type-body-color
+  text-decoration: none;
+  white-space: nowrap;
+  -webkit-font-smoothing: antialiased
+
+  &:hover
+    color: #3CC76A;
+    text-decoration: none
+
+// .fonts-loaded .Navigation-link,
+// .fonts-loaded .Navigation-menuItem
+//   font-family: $roboto-medium
+
+.Navigation-link
+  float:left
+  transition: opacity .2s ease-in;
+  font-size: 14px;
+  font-size: rem(14px)
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1; // 14px
+  padding: em(11px, context: @font-size), em(12px, @font-size);
+  padding: rem(11px) rem(12px)
+  //background-color: lighten(blue, 90%)
+.fonts-loaded .Navigation-link
+  font-family: $type-menu-font
+
+.Navigation-trigger
+  background: url(/img/caret.svg) 8px 0 no-repeat
+  //cursor: pointer;
+  display: inline-block;
+  height: 6px;
+  position: relative;
+  vertical-align: middle;
+  width: 16px;
+
+/* dropdown menu */
+.Navigation-menu
+  position: absolute;
+  top: 100%;
+  left: -12px;
+  z-index: -1;
+  margin-top: 0;
+  padding: 8px 0;
+  background: #fff;
+  border-radius: 4px;
+  opacity: 0;
+  //transform: translateX(-50%);
+  pointer-events: none;
+  min-width: 80px
+
+  //&.open
+  box-shadow: 0 1px 3px rgba(205, 190, 173, .53);
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 10
+  visibility: hidden;
+
+.Navigation-menuItem
+  display: block;
+  line-height: 40px;
+  padding: 0 40px 0 24px;
+  text-align: left;
+  font-size: 14px
+  font-size: rem(14px)
+  font-weight: normal
+  &:hover
+    background: rgba(60, 199, 106, .05);
+.fonts-loaded .Navigation-menuItem
+  font-family: $type-body-font;
+
+.Navigation-button
+  type-menu()
+  background-color: transparent;
+  border-radius: 50px;
+  //border: 1px solid #3CC76A;
+  box-shadow: 0px 0px 0px 1px #3CC76A //$type-link-color
+
+  color: #3CC76A;
+  display: inline-block;
+  // font-family: 'Freight Sans Small Caps', Verdana, Geneva, sans-serif;
+  //font-size: 16px;
+  //line-height: 16px;
+  padding: 11px 32px;
+  margin-right: 12px;
+  text-decoration: none
+
+  &:hover
+    text-decoration: none
+
+.Navigation-link--closeMenu,
+.Navigation-link--openMenu
+  //height: rem(64px);
+  line-height: 56px;
+  type-reset()
+
+.Navigation-link--closeMenu
+  opacity: 0
+  position: absolute;
+  right: (rem(16px));
+  top: 0;
+  transition: opacity .3s 0s,visibility 0s .3s;
+  svg
+    vertical-align: middle
+
+.Navigation-link--openMenu
+  text-transform: uppercase;
+  opacity: 1
+  position: absolute;
+  right: (rem(16px));
+  top: 0
+  transition: opacity .3s .6s,visibility 0s,color .3s;
+
+.menuIsActive
+  .Navigation-link--closeMenu
+    opacity: 1
+    transition: opacity .3s .3s,visibility 0s;
+  .Navigation-link--openMenu
+    opacity: 0
+    transition: opacity .15s 0s,visibility 0s .3s,color .3s;
+
+
+/* @define Menu */
+
+.showtime .Menu
+  transition: transform .3s .3s,visibility 0s .6s,-webkit-transform .3s .3s;
+
+.menuIsActive .Menu
+  visibility: visible;
+  transition: transform .3s,visibility 0s,-webkit-transform .3s;
+  transform: translate3d(0, 0, 0);
+
+.menuIsActive .Menu
+  overflow-y: scroll;
+  +above(824px)
+    overflow-y: auto
+
+.Menu
+  position: absolute;
+  z-index: -1; // 3 --> (square) changed because of nesting
+  left: 0;
+  top: 0;
+  width: 100%;
+  visibility: hidden
+  transform: translate3d(0, -100%, 0);
+  transition: transform .3s .3s,visibility 0s .6s,-webkit-transform .3s .3s;
+  background-color: #1b2126; //via square
+  padding-top: rem(56px)
+  box-shadow: 0 1px 0 0 rgba(255,255,255,0.12);
+  height: 100vh;
+  +above(824px)
+    padding-top: rem(88px);
+    height: auto;
+
+
+.menuIsActive .Menu-body
+  transition: opacity .3s .3s;
+  opacity: 1;
+
+.Menu-body
+  box-shadow: inset 0px 1px 0px 0px $dcgy-color-white-divider //rgba(0,0,0,1);
+  max-width: 980px;
+  margin: 0 rem(16px);
+  opacity: 0;
+  transition: opacity .3s 0s;
+  padding-bottom: 16px
+  +above(1024px)
+    margin: 0 auto;
+
+.Menu-section
+  box-shadow:  0px 1px 0px 0px $dcgy-color-white-divider
+  padding: rem(8px) 0;
+  &:last-child
+    box-shadow: none;
+
+.Menu-sectionTitle
+  margin: 0
+  font-size: 14px;
+  font-size: rem(14px)
+  line-height: (48/14)
+
+  color: $dcgy-color-white;
+  opacity: 0.5;
+
+.Menu-items
+  lost-utility: clearfix;
+  //lost-flex-container: row
+  margin: 0 -8px
+
+.Menu-itemsGroup
+  lost-column: 1/2 2 0;
+
+.Menu-item
+  display: block;
+  type-menu();
+  padding: 0 8px;
+  color: $dcgy-color-white
+  text-decoration: none;
+  line-height: (48/14)
+  //.u-textTurncate long content
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal
+  &:hover,
+  &:focus
+    background-color: rgba(255, 255, 255, 0.10);
+  &:active
+    background-color: rgba(255, 255, 255, 0.25);
+
+.Menu-item--small
+  font-size: 12px;
+  font-size: rem(12px);
+  line-height: (40/12)
+
+.Menu-item--smallRegular
+  @extend .Menu-item--small
+  font-weight: 300;
+.fonts-loaded .Menu-item--smallRegular
+  font-family: $type-light-font;
+
+
+.Menu-button
+  type-menu()
+  background-color: transparent;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px 1px #3CC76A //$type-link-color
+  color: #3CC76A;
+  padding: 11px 32px;
+  text-decoration: none
+  display: inline-block;
+  position: relative;
+  top: 6px;
+
+
+/*
+.Navigation
+  z-index: 100;
+  position: relative;
+
+//.Navigation--modifier
+
+.Navigation-body
+  group()
+  margin: auto;
+  max-width: rem((980 + 32)px)
+  padding: rem(32px) rem(16px) rem(40px) rem(16px)
+
+.Navigation-left
+  float: left;
+  group()
+
+.Navigation-right
+  float: right;
+  group()
+
+.Navigation-logo
+  float: left;
+  margin: 0 32px 0 0;
+
+.Navigation-logo a
+  background-image: url('/img/Discovergy-logo.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  //color: transparent;
+  display: block;
+  //font: 0/0 a;
+  height: 24px;
+  opacity: 0.88;
+  overflow: hidden
+  text-indent: -9999px;
+  //text-shadow: none;
+  width: 182px;
+
+.Navigation-links
+  float: left;
+  group()
+.Navigation-links>*
+  //margin-right: 20px
+  type-menu()
+  border-radius: em(4px, @font-size)
+  //color: $dcgy-color-black-disabled-hex
+  color: $dcgy-color-black-primary-hex
+  padding: em(11px, 14px) em(16px, 14px);
+  text-decoration: none;
+  display: inline;
+
+  &:first-child
+    //margin-left: rem(-8px);
+
+  &:last-child
+    //margin-right: rem(-16px);
+
+  &:hover
+    color: $type-link-color;
+    background-color: lighten($type-link-color, 90%);
+
+  &:focus
+    background-color: lighten($type-link-color, 90%);
+    box-shadow: inset 0 0 0 1px rgba(8, 153, 114, 0.02);
+
+.Navigation-dropdown
+  cursor: pointer;
+  line-height: 0;
+  position: relative;
+  display: inline;
+  group()
+
+.Navigation-trigger
+    background: url(/img/caret.svg) 8px 4px no-repeat
+    cursor: pointer;
+    display: inline-block;
+    height: 16px;
+    position: relative;
+    vertical-align: middle;
+    width: 16px;
+    //-webkit-transform: scale(.8);
+    //transform: scale(.8);

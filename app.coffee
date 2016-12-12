@@ -1,19 +1,26 @@
-axis = require 'axis'
-rupture = require 'rupture'
-# autoprefixer = require 'autoprefixer-stylus' #using postcss instead
-# js_pipeline = require 'js-pipeline' #replace with browserify
-browserify = require('roots-browserify')
+axis         = require 'axis'
+rupture      = require 'rupture'
+# autoprefixer = require 'autoprefixer-stylus' # use postcss/cssnext autoprefixer insted
+# js_pipeline  = require 'js-pipeline' # use browserify insted
+browserify = require 'roots-browserify'
 css_pipeline = require 'css-pipeline'
-atImport = require('postcss-import')
-customProperties = require("postcss-custom-properties")
-calc = require("postcss-calc")
-customMedia = require("postcss-custom-media")
-autoprefixer = require('autoprefixer')
-#bemLinter = require('postcss-bem-linter')
-#rucksack = require('rucksack-css');
-lost = require 'lost'
-#i18n = require 'roots-i18n'
+
+# node stuff
+path = require 'path'
+
+# data stuff
 yaml = require 'roots-yaml'
+#i18n = require 'roots-i18n' # basic translation mechanism
+
+# css stuff
+postcssImport = require 'postcss-import'
+cssnext = require 'postcss-cssnext'
+rucksack = require 'rucksack-css'
+lost = require 'lost'
+# postcssFontMagic = require 'postcss-font-magician'
+# postcssUnits = require 'postcss-units'
+nano = require 'cssnano'
+
 
 module.exports =
   ignores: [
@@ -22,34 +29,34 @@ module.exports =
     '**/_*',
     '.gitignore',
     'ship.*conf',
-    'data/**/*.*',
-    'assets/css/settings/**/*.*',
-    'assets/css/components/**/*.*',
-    'assets/css/utilities/**/*.*'
+    'assets/css/_*/**/*.*'
+    'assets/css/css_modules/**/*.*'
   ]
+  locals:
+    lang: 'DE'
 
   extensions: [
     yaml(),
     #js_pipeline(files: 'assets/js/*.js'),
-    browserify(files: ['assets/js/main.coffee', 'assets/js/fontDetect.js', 'assets/js/menu-button.js'], out: 'js/build.js'),
+    browserify(files: ['assets/js/main.coffee'], out: 'js/build.js'),
     css_pipeline(files: 'assets/css/*.styl', 'assets/css/*.css', postcss: true)
   ]
 
   stylus:
-    use: [axis(), rupture()] #autoprefixer() using postcss instead
+    use: [axis(), rupture()] #use postcss/cssnext autoprefixer
     sourcemap: true
     'include css': true
 
   postcss:
     use: [
-      customProperties(),
-      atImport(),
-      calc(),
-      customMedia(),
-      autoprefixer(),
-      #bemLinter(),
-      #rucksack(),
-      lost()
+      postcssImport({
+        path: [ path.resolve(__dirname + '/assets/css/css_modules') ]
+      }),
+      cssnext(),
+      rucksack(),
+      #postcssFontMagic(),
+      lost(),
+      nano({ autoprefixer: false })
     ]
 
   'coffee-script':
