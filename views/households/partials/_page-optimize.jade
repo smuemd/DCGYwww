@@ -4,52 +4,24 @@ Section.Page
     
       .Page-column
         h3.Page-title.Page-title--center
-          | Optimieren Sie Ihre Energieversorgung langfristig.
+          != data.households.optimize.prose[0].title
         p.Page-subtitle.Page-subtitle--center.u-lg-size7of12
-          | Analysieren Sie den Verbrauch der vergangenen Tage, Wochen oder Monate.
-          |  Beginnen Sie mit der kontinuierlichen Optimierung Ihres Zuhauses.
+          != data.households.optimize.prose[0].subtitle
       
       .Page-features.Page-column.Page-row
-        
-        .Feature.Feature--1of2
-          h6.Feature-title
-            | Langfristige Verbrauchsmuster und Trends entdecken.
-          p.Feature-body.
-            Verschaffen Sie sich einen 360-Grad Blick auf Ihren aktuellen 
-            Verbrauch und die vergangenen Tage, Wochen, Monate und Jahre.
-            
-        .Feature.Feature--1of2
-          h6.Feature-title
-            | Phantomstrom erkennen und abstellen.
-          p.Feature-body.
-            Finden Sie alle Geräte, die ausgeschaltet sind aber trotzdem Strom 
-            verbrauchen. So vermeiden Sie unnötige Verluste durch Stand-by.  
-            
-        .Feature.Feature--1of2
-          h6.Feature-title
-            | Den Energieverbrauch einzelner Geräte analysieren.
-          p.Feature-body.
-            Discovergy schlüßelt den Verbrauch und die Kosten für einzelne 
-            Haushaltsgeräte auf. Nutzen Sie völlig neue Möglichkeiten für eine 
-            intelligente und zielgerichtete Steuerung Ihrer Energieversorgung.
-            
-        .Feature.Feature--1of2
-          h6.Feature-title
-            | Energiekosten im Voraus ermitteln.
-          p.Feature-body.
-            Keine bösen Überrauschungen mehr am Ende des Jahres: Mit Discovergy 
-            wissen Sie immer auf den Cent genau, was auf Ihrer Stromrechnung 
-            stehen wird.
+        each feature in data.households.optimize.features
+          .Feature.Feature--1of2
+            h6.Feature-title
+              != feature.title
+            p.Feature-body
+              != feature.body
 
       .Page-column
         .Page-image.Page-image--center.u-md-size10of12.u-lg-size7of12
-          img(src='https://discovergy.com/images/pages/functions/Discovergy_Analyse-Tools.png')
+          img(src='#{data.households.optimize.image.url}' alt='#{data.households.optimize.image.caption}')
           
       .Page-column.Page-column--fullWidth
         h3.Page-title.Page-title--center
-          | Perfekt im Zusammenspiel mit Solaranlage, BHKW und Batteriespeicher.
-        p.Page-subtitle.Page-subtitle--center.u-lg-size9of12.
-          Nehmen Sie Ihre Energieversorgung selbst in die Hand. Mit Discovergy 
-          analysieren Sie Produktion und Verbrauch gleichzeitig und in Echtzeit. 
-          So erhöhen Sie die Erträge Ihres Zuhause-Kraftwerks und optimieren Ihren 
-          Eigenverbrauch.
+          != data.households.optimize.prose[1].title
+        p.Page-subtitle.Page-subtitle--center.u-lg-size9of12
+          != data.households.optimize.prose[1].subtitle
