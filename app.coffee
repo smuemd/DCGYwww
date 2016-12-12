@@ -17,8 +17,9 @@ postcssImport = require 'postcss-import'
 cssnext = require 'postcss-cssnext'
 rucksack = require 'rucksack-css'
 lost = require 'lost'
-#postcssFontMagic = require 'postcss-font-magician'
+# postcssFontMagic = require 'postcss-font-magician'
 # postcssUnits = require 'postcss-units'
+nano = require 'cssnano'
 
 
 module.exports =
@@ -28,10 +29,11 @@ module.exports =
     '**/_*',
     '.gitignore',
     'ship.*conf',
-    'assets/css/components/**/*.*',
-    'assets/css/utilities/**/*.*',
-    'assets/css/settings/**/*.*'
+    'assets/css/_*/**/*.*'
+    'assets/css/css_modules/**/*.*'
   ]
+  locals:
+    lang: 'DE'
 
   extensions: [
     yaml(),
@@ -48,16 +50,13 @@ module.exports =
   postcss:
     use: [
       postcssImport({
-        path: [
-          path.resolve(__dirname + '/assets/css/utilities'),
-          path.resolve(__dirname + '/assets/css/components'),
-          path.resolve(__dirname + '/assets/css/settings')
-        ]
+        path: [ path.resolve(__dirname + '/assets/css/css_modules') ]
       }),
       cssnext(),
       rucksack(),
       #postcssFontMagic(),
-      lost()
+      lost(),
+      nano({ autoprefixer: false })
     ]
 
   'coffee-script':
