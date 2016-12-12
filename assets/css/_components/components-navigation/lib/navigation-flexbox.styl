@@ -7,10 +7,11 @@
  * @import typography ( icl. variables)
  */
 
- .menuIsActive body
-   overflow-y: hidden;
-   +above(em(824px))
-     overflow-y: scroll;
+.menuIsActive body
+  overflow-y: hidden;
+  //+above(824px)
+  @media (--lg-viewport)
+    overflow-y: scroll;
 
 .Navigation
   z-index: 10;
@@ -31,9 +32,9 @@
   max-width: 980px;
   margin: 0 rem(16px);
   padding: rem(16px) 0;
-  +above(em(824px))
+  +above(824px)
     padding: rem(26px) 0; // Segment padding: 15px 30px;
-  +above(em(1024px))
+  +above(1024px)
     margin: 0 auto;
 
 
@@ -58,13 +59,13 @@
 .Navigation-links
   display: flex;
   align-items: center;
-  +below(em(824px))
+  +below(824px)
     display: none
 
 .Navigation-links--mobile
   display: flex;
   align-items: center
-  +above(em(824px))
+  +above(824px)
     display: none
 
 //.Navigation-links>*
@@ -219,7 +220,7 @@
 
 .menuIsActive .Menu
   overflow-y: scroll;
-  +above(em(824px))
+  +above(824px)
     overflow-y: auto
 
 .Menu
@@ -235,7 +236,7 @@
   padding-top: rem(56px)
   box-shadow: 0 1px 0 0 rgba(255,255,255,0.12);
   height: 100vh;
-  +above(em(824px))
+  +above(824px)
     padding-top: rem(88px);
     height: auto;
 
@@ -251,7 +252,7 @@
   opacity: 0;
   transition: opacity .3s 0s;
   padding-bottom: 16px
-  +above(em(1024px))
+  +above(1024px)
     margin: 0 auto;
 
 .Menu-section
@@ -264,7 +265,7 @@
   margin: 0
   font-size: 14px;
   font-size: rem(14px)
-  line-height: unit(em(48px, 14px), '')
+  line-height: (48/14)
 
   color: $dcgy-color-white;
   opacity: 0.5;
@@ -283,7 +284,7 @@
   padding: 0 8px;
   color: $dcgy-color-white
   text-decoration: none;
-  line-height: unit(em(48px, 14px), '')
+  line-height: (48/14)
   //.u-textTurncate long content
   overflow: hidden;
   text-overflow: ellipsis;
@@ -298,7 +299,7 @@
 .Menu-item--small
   font-size: 12px;
   font-size: rem(12px);
-  line-height: unit(em(40px, 12px), '')
+  line-height: (40/12)
 
 .Menu-item--smallRegular
   @extend .Menu-item--small
