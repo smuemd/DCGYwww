@@ -1,0 +1,12 @@
+/**
+ * @define utilities
+ * tachyons-code
+ * Docs: none
+ * Repo: none
+ */
+
+.pre {
+  overflow-x: auto;
+  overflow-y: hidden;
+  overflow:   scroll;
+}

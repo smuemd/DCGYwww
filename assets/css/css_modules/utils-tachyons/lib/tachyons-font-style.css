@@ -1,0 +1,32 @@
+/**
+ * @define utilities
+ * tachyons-font-style 4.0.3
+ * Docs: http://tachyons.io/docs/typography/font-style/
+ * Repo: https://github.com/tachyons-css/tachyons-font-style
+ */
+
+/**
+ * Media Query Extensions:
+ *  -ns = not-small
+ *  -m  = medium
+ *  -l  = large
+ */
+
+
+.i         { font-style: italic; } /* u-italic */
+.fs-normal { font-style: normal; } /* u-normal */
+
+@media (--breakpoint-not-small) {
+  .i-ns       { font-style: italic; } /* u-ns-italic */
+  .fs-normal-ns     { font-style: normal; } /* u-ns-normal */
+}
+
+@media (--breakpoint-medium) {
+  .i-m       { font-style: italic; }
+  .fs-normal-m     { font-style: normal; }
+}
+
+@media (--breakpoint-large) {
+  .i-l       { font-style: italic; }
+  .fs-normal-l     { font-style: normal; }
+}
