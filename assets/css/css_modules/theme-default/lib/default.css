@@ -10,9 +10,15 @@
  * Breakpoints
  */
 
+/* SUIT Css */
 @custom-media --sm-viewport (min-width:320px) and (max-width:640px);
 @custom-media --md-viewport (min-width:640px) and (max-width:960px);
 @custom-media --lg-viewport (min-width:960px);
+
+/* Tachyons */
+@custom-media --breakpoint-not-small screen and (min-width: 30em); /* > 480px */
+@custom-media --breakpoint-medium screen and (min-width: 30em) and (max-width: 60em); /* > 480px & < 960px */
+@custom-media --breakpoint-large screen and (min-width: 60em); /* > 960px */
 
 /**
  * Colors
