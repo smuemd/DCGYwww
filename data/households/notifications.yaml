@@ -1,0 +1,29 @@
+# Page image
+image:
+  url: 'https://discovergy.com/images/pages/functions/Discovergy-App_Benachrichtigungen.png'
+  caption: 'Intelligente Benarichtigungen aufs Telefon.'
+
+# Page prose
+# TODO: Prose urls
+title: 'Ihr persönlicher Energieassistent.'
+subtitle: >
+          Discovergy ist Ihr persönlicher Energie-Assistent, der alle Geräte im
+          Blick hat, Sie über wichtige Ereignisse informiert und bei
+          ungewöhnlichen Verbrauchsmustern sofort Alarm schlägt.
+          So wissen Sie immer, was zuhause los ist.
+
+# Page features
+# TODO: Feature links
+features:
+  - title: 'Mehr Sicherheit für Ihr Zuhause.'
+    body: >
+          Sind Geräte eingeschaltet? Ist mein Verbrauch ungewöhnlich hoch? Mit
+          Discovergy kennen Sie nicht nur den Stromverbrauch zuhause. Sie
+          erhalten bei ungewöhnlichen Verbrauchswerten auch aussagekräftige
+          Benachrichtigungen und Warnhinweise.
+
+  - title: 'Benarichtigungen für unterwegs.'
+    body: >
+          Erhalten Sie Nachrichten Ihres Energie-Assistenten auch bequem aufs
+          Handy. So wissen Sie immer ob alles in Ordnung ist, auch wenn Sie
+          gerade nicht zuhause sind.

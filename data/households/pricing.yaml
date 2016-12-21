@@ -1,0 +1,28 @@
+# Pricing prose
+title: 'Intelligene Energie für Ihr Zuhause. Ohne wenn und aber.'
+subtitle: >
+          Mit uns ist Energieintelligenz kinderleicht. Erleben und optimieren
+          Sie Energieverbrauch und Erzeugung in Echtzeit. Alles zum günstigen
+          Festpreis, ohne Überraschungen oder Zusatzgebühren.
+
+# Pricing
+prices:
+  - amount: '69&#8364;'
+    finePrint: 'Einmalige Setupgebühr'
+  - amount: '5&#8364;'
+    finePrint: 'Monatlich je Zähler'
+
+# Pricing check list
+checkList:
+  - 'Automatische Zählerständserfassung'
+  - 'Echtzeit Monitoring'
+  - 'Detailierte Energieanalysen'
+  - 'Tipps zur Verbrauchsoptimierung'
+  - 'Rechnungsprognose'
+  - 'Monatlicher Energiereport'
+  - 'Vergleichen mit ähnlichen Haushalten'
+  - 'Zählerstandsmeldung an Energieversorger'
+  - 'Stromzähler inklusive'
+  - 'Zählereinbau durch zertifizierten Elektriker'
+  - 'Benarichtigungen & Alerts'
+  - 'Apps mit Energieassistent'
