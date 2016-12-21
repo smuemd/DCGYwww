@@ -1,0 +1,43 @@
+# Page image
+image:
+  url: 'https://placeholdit.imgix.net/~text?txtsize=56&txt=932%C3%97592&w=932&h=592'
+  caption: 'Portal'
+
+# Page prose
+# TODO: prose urls
+title:  'Werden Sie Energie intelligent.'
+subtitle: >
+          Mit Discovergy machen Sie Ihren Energie­verbrauch intelligen­ter. Für ein besseres und nachhaltiges Leben zuhause.
+
+# Page features
+# TODO: Feature links
+features:
+  - title: 'Nachhaltig Energie und Kosten sparen. Stepan'
+    body: >
+          Durch perfektes Energiemenagement vermeiden Sie unnötigen Verbrauch
+          und sparen jeden Monat Geld.
+
+  - title: 'Schluß mit hohen Nachzahlungen.'
+    body: >
+          Mit Discovergy wissen Sie immer wie­viel Energie Sie verbrauchen.
+          Keine Über­rasch­ungen mehr auf Ihrer Stromrechnung.
+
+  - title: 'Ideal für PV, BHKW und Batteriespeicher.'
+    body: >
+            Überwachen Sie PV-Anlagen, BHKWs und Stromspeicher in Echtzeit und
+            optimieren Sie so Ihren Eigenverbrauch.
+
+  - title: 'Kompatibel mit allen Stromversorgern.'
+    body: >
+          Energie-Intelligenz mit Discovergy funktioniert deutschlandweit,
+          auch mit Ihrem bisherigen Stromversorger.
+
+  - title: 'Mehr Sicherheit zu jeder Zeit.'
+    body: >
+          Erhalten Sie Benachrichtigungen direkt auf Ihr Handy. So gehen Sie
+          immer sicher, dass alles bei Ihnen Zuhause in Ordnung ist.
+
+  - title: 'Werden Sie unabhängig.'
+    body: >
+          Ihre Daten gehören Ihnen. Mit Discovergy betreiben Sie Ihren
+          Stromzähler unab-hängig vom Energieversorger.

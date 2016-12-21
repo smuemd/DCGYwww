@@ -1,0 +1,23 @@
+Section.Page
+    .Layout.Layout--fixed
+      .Page-row.Page-content.u-borderTop
+        //.Page-prose.Page-prose--left
+        .Page-prose.Page-prose--center
+          h3.Page-title.Page-title--center
+            =data.households.energyIQ.title
+          p.Page-subtitle.Page-subtitle--center
+            =data.households.energyIQ.subtitle
+          
+        //.Page-image
+        .Page-column.Page-column--fullWidth
+          .Page-image.Page-image--center
+            img(src='#{ data.households.energyIQ.image.url }')
+        
+        .Page-features.Page-column.Page-column--fullWidth.Page-row
+          
+          each feature in data.households.energyIQ.features
+            div.Feature.Feature--1of3
+              h6.Feature-title
+                =feature.title
+              p.Feature-body
+                =feature.body

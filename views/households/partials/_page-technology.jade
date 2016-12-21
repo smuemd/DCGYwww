@@ -1,0 +1,21 @@
+Section.Page
+  .Layout.Layout--fixed
+    .Page-row.Page-content.u-borderTop
+      
+      .Page-column.pushRight.Page-column--1of2
+        .Page-image 
+          img(src='#{data.households.technology.image.url}')
+      
+      .Page-column.pushLeft.Page-column--1of2.Page-prose.Page-prose--left
+        h3.Page-title
+          !=data.households.technology.title
+        p.Page-subtitle
+          !=data.households.technology.subtitle
+        
+        .Page-features
+          each feature in data.households.technology.features
+            .Feature
+              h6.Feature-title
+                != feature.title
+              p.Feature-body
+                != feature.body

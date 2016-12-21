@@ -1,0 +1,21 @@
+Section.Page
+  .Layout.Layout--fixed
+    .Page-row.Page-content.u-borderTop
+      
+      .Page-column.pushRight.Page-column--1of2
+        .Page-image 
+          img.db.center(src='#{data.households.reports.image.url}' width="")
+      
+      .Page-column.pushLeft.Page-column--1of2.Page-prose.Page-prose--left
+        h3.Page-title
+          !=data.households.reports.title
+        p.Page-subtitle
+          !=data.households.reports.subtitle
+        
+        .Page-features
+          each feature in data.households.reports.features
+            .Feature
+              h6.Feature-title
+                != feature.title
+              p.Feature-body
+                != feature.body

@@ -1,30 +1,46 @@
-/* Load Normalize */
-@css{
-  @import 'normalize.css';
-}
-
-// /* Load global SUIT Css packages */
 @css {
-  @import 'suitcss-base';
-  @import 'suitcss-utils';
-  /* @import 'suitcss-components'; */
+
+  /* 1. Import base styles */
+  @import 'suitcss-base'; /* via npm */
+  /* @import 'base'; */
+
+  /* 2. Import base styles */
+  @import 'suitcss-utils'; /*via npm */
+  /* @import 'utils-example'; */
+  @import 'utils-tachyons';
+
+  /* 3. Import components */
+  /* @import 'suitcss-components'; */ /* via npm */
+  /* @import 'components-example'; */
+
+  /* 4. Apply custom settings (optional) */
+  @import 'theme-default';
+
 }
 
-/* Load settings */
-@import './settings';
+/* Stylus legacy
+   ========================================================================== */
 
-/* Common  styles */
-@import './components/base';
 
-/* Components */
-@import './components/typography';
+// TODO:
+//    + figure out how to handle fonts
 
-@import './components/navigation';
+// Load Stylus variables
+@import './_settings'
 
-/* Apply base styles */
+// Stylus common base
+@import './_base'
 
-//base()
+// Load Stylus utilities
+@import './_utilities/utils-border'
 
+// Stylus components
+@import './_components/components-typography'
+@import './_components/components-layout'
+@import './_components/components-navigation'
+@import './_components/components-hero'
+@import './_components/components-page'
+@import './_components/components-feature'
 
 //padding: 50px
 //lost-center: 980px

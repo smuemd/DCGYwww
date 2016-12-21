@@ -1,0 +1,79 @@
+/** @define Feature; */
+
+/**
+ * Feature component
+ *
+ * A Feature is a website component with text and icon that describes a product features
+ * or benefit.
+ * Lives inside of site pages
+ *
+ * Example HTML:
+ *
+ * <div class="Feature">
+ *   <div class="Feature-title"></div>
+ *   <div class="Feature-body"></div>
+ * </div>
+ */
+
+/* Feature container
+   ========================================================================== */
+
+/**
+ * Generic wrapper around Feature content.
+ * Spans 100 % of window width. May receive distict bg color for contrast.
+ *
+ * 1. Set TODO
+ * 2. Set TODO
+ */
+
+ .Feature
+   display: block
+   width: 100%
+   margin-bottom: 32px
+
+/**
+ * Modifier:
+ * Size Page colum to 33 % of parent node on lage viwpoints.
+ */
+
+.Feature--1of3
+  @media (min-width: 780px)
+    lost-column: 1/2 2 16px flex
+  @media (min-width: 960px)
+    lost-column: 1/3 3 16px flex
+
+/**
+ * Modifier:
+ * Size Page colum to 50 % of parent node on lage viwpoints.
+ */
+
+.Feature--1of2
+  @media (min-width: 780px)
+    lost-column: 1/2 2 24px flex
+
+/* Feature title
+   ========================================================================== */
+
+/**
+ * TODO
+ *
+ * 1. Set TODO
+ * 2. Set TODO
+ */
+
+ .Feature-title
+   margin-bottom: 16px
+
+ /* Feature body
+    ========================================================================== */
+
+ /**
+  * TODO
+  *
+  * 1. Set TODO
+  * 2. Set TODO
+  */
+
+  .Feature-body
+    color $dcgy-color-black-secondary-hex
+    margin-bottom: 0px

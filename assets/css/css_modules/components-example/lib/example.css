@@ -1,0 +1,106 @@
+/** @define Example; use strict */
+
+@import 'utils-example';
+
+/**
+ * Short description using Doxygen-style comment format.
+ * Note the ''@import' above, handling dependencys and
+ * the local module variables below, for theming.
+ */
+
+:root {
+  --Example-padding: 20px;
+  --Example-highlight-color: orange;
+  --Example-gutter-size: 24px;
+}
+
+/**
+ * Short description using Doxygen-style comment format
+ *
+ * The first sentence of the long description starts here and continues on this
+ * line for a while finally concluding here at the end of this paragraph.
+ *
+ * The long description is ideal for more detailed explanations and
+ * documentation. It can include example HTML, URLs, or any other information
+ * that is deemed necessary or useful.
+ *
+ * TODO: This is a todo statement that describes an atomic task to be completed
+ *   at a later date. It wraps after 80 characters and following lines are
+ *   indented by 2 spaces.
+ *
+ * @tag This is a tag named 'tag'
+ *
+ * 1. A helpful description of a declaration's purpose.
+ * 2. Another declaration or collection of declarations can reference this
+ *    comment with an inline comment corresponding to the lists number.
+ */
+
+ /* Thematic section comment block
+   ========================================================================== */
+
+ /* Basic comment */
+
+/* => and here we go with a practical example:
+
+/**
+ * Example container
+ *
+ * Must only contain `.Example-cell` children.
+ *
+ * 1. Remove inter-cell whitespace
+ * 2. Prevent inline-block cells wrapping
+ */
+
+.Example {
+  color: var(--Example-highlight-color, black);
+  padding: var(--Example-padding, 1rem);
+  font-size: 0; /* 1 */
+  height: 100%;
+  white-space: nowrap; /* 2 */
+}
+
+/**
+ * Example cells
+ *
+ * No explicit width by default. Extend with `.Example-cell--n` classes.
+ *
+ * 1. Reset font-size inherited from `.Example`
+ * 2. Set the inter-cell spacing
+ * 3. Reset white-space inherited from `.Example`
+ */
+
+.Example-cell {
+  border: 2px solid #333;
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 1rem; /* 1 */
+  height: 100%;
+  overflow: hidden;
+  padding: 0 10px; /* 2 */
+  position: relative;
+  vertical-align: top;
+  white-space: normal; /* 3 */
+}
+
+/* Cell states */
+
+.Example-cell.is-animating {
+  background-color: #fffdec;
+}
+
+/* Cell dimension modifiers
+   ========================================================================== */
+
+.Example-cell--1 { width: 10%; }
+.Example-cell--2 { width: 20%; }
+.Example-cell--3 { width: 30%; }
+.Example-cell--4 { width: 40%; }
+.Example-cell--5 { width: 50%; }
+
+/* Cell modifiers
+   ========================================================================== */
+
+.Example-cell--detail,
+.Example-cell--important {
+  border-width: 4px;
+}

@@ -1,0 +1,15 @@
+/**
+ * components-example
+ */
+
+:root {
+  --Example-gutter-size: var(--space-small-px);
+}
+
+/**
+ * components-other
+ */
+
+:root {
+  --Other-gutter-size: var(--space-large-px);
+}

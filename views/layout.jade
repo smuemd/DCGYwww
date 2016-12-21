@@ -1,5 +1,5 @@
 doctype html
-html(lang='{{ lang }}')
+html(lang='#{lang}')
 
   head
     meta(charset='utf8')
@@ -9,8 +9,8 @@ html(lang='{{ lang }}')
     //- uncomment if your site is responsive!
     meta(name="viewport" content="width=device-width, initial-scale=1")
     title= _path
-    != css("/")
     include partials/_fontface-embed.jade
+    != css("/")
     <!--[if lt IE 9]>
     <script src="/js/polyfill/html5-shiv.js"></script>
     <![endif]-->

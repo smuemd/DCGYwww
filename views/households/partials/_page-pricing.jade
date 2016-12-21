@@ -1,0 +1,34 @@
+//- TODO: clean up, colors, closes, checklist!
+Section.Page
+  .Layout.Layout--fixed
+    .Page-row.Page-content.u-borderTop
+    
+      .Page-column
+        h3.Page-title.Page-title--center
+          != data.households.pricing.title
+        p.Page-subtitle.Page-subtitle--center.u-lg-size7of12
+          != data.households.pricing.subtitle
+      
+      .Page-column.u-flex.pv4.mb4.tc.bg-green.white
+        .u-sizeFill
+          .Pricing-amount.f-5.lh-title.fw3
+            != data.households.pricing.prices[0].amount
+          .Pricing-fineprint.f6.ttu.tracked
+            small
+              != data.households.pricing.prices[0].finePrint
+            
+        .Pricing-divider.f-5.lh-title
+          | +
+          
+        .u-sizeFill
+          .Pricing-amount.f-5.lh-title.fw3
+            != data.households.pricing.prices[1].amount
+          .Pricing-fineprint.f6.ttu.tracked
+            small
+              != data.households.pricing.prices[1].finePrint
+              
+      .Page-column.u-flex.u-flexWrap
+        each mark in data.households.pricing.checkList
+          .u-size1of2.u-lg-size1of4.pl5.mb4.f6.u-textBreak
+            != mark
+            

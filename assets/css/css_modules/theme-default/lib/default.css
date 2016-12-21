@@ -1,0 +1,64 @@
+/**
+ * TODO: Theme definition
+ *   (https://github.com/suitcss/theme/blob/master/lib/theme.css)
+ *
+ * This defines the default theme in fundamental terms, but not how it is
+ * applied to the components. That is done in `default-map.css`.
+ */
+
+/**
+ * Breakpoints
+ */
+
+/* SUIT Css */
+@custom-media --sm-viewport (min-width:320px) and (max-width:640px);
+@custom-media --md-viewport (min-width:640px) and (max-width:960px);
+@custom-media --lg-viewport (min-width:960px);
+
+/* Tachyons */
+@custom-media --breakpoint-not-small screen and (min-width: 30em); /* > 480px */
+@custom-media --breakpoint-medium screen and (min-width: 30em) and (max-width: 60em); /* > 480px & < 960px */
+@custom-media --breakpoint-large screen and (min-width: 60em); /* > 960px */
+
+/**
+ * Colors
+ */
+
+:root {
+  --color-twitter-blue: #55acee;
+  --color-white: #fff;
+
+  /* Primary grays */
+  --color-charcoal: #292f33;
+  --color-dark-gray: #66757f;
+  --color-medium-gray: #8899a6;
+  --color-gray: #ccd6dd;
+  --color-border-gray: #e1e8ed;
+  --color-faint-gray: #f5f8fa;
+
+  /* Primary blues */
+
+  --color-dark-blue: #226699;
+  --color-deep-blue: #3b88c3;
+  --color-light-blue: #88c9f9;
+}
+
+/**
+ * Fonts
+ */
+
+:root {
+  --font-size: 16px;
+  --font-family: sans-serif;
+  --line-height: 1.4;
+}
+
+/**
+ * Spacing
+ */
+
+:root {
+  --space-small-px: 10px;
+  --space-medium-px: 15px;
+  --space-large-px: 20px;
+}

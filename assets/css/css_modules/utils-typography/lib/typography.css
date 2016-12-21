@@ -1,0 +1,107 @@
+/**
+ * @define utilities
+ * DCGY-www typography utilitiy classes.
+ * No dependencies.
+ */
+
+/**
+ * Typorgraphic styles for Discovergy website
+ *
+ * Inspired by Google Material design. Provides custom overrides for the
+ * following css properties:
+ * - font-size
+ * - font-weight
+ * - letter-spacing
+ * - line-height
+ *
+ * Not concerned about:
+ * - font family
+ * - font style
+ */
+
+:root {
+  --type-display4: {
+    font-size: 7rem;
+    font-weight: 300; /* light */
+    letter-spacing: -0.04em;
+    line-height: 1;
+  };
+}
+
+/* Typographic styles
+   ========================================================================== */
+
+/**
+ * Specify font-size, font-weight, letter-spacing and line-height.
+ */
+
+.u-typeDisplay4 {
+  @apply --type-display4;
+}
+
+.u-typeDisplay3 {
+  font-size: 3.5rem;
+  letter-spacing: -0.02em;
+  line-height: calc(72/56);
+}
+
+.u-typeDisplay2 {
+  font-size: 2.8125rem;
+  line-height: calc(48/45);
+}
+
+.u-typeDisplay1 {
+  font-size: 2.125rem;
+  line-height: calc(40/34);
+}
+
+.u-typeHeadline {
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.5rem;
+  line-height: calc(32/24);
+}
+
+.u-typeTitle {
+  font-size: 1.25rem;
+  font-weight: 500; /* medium */
+  letter-spacing: 0.02em;
+  line-height: 1; /* TODO: double-check this line-height */
+}
+
+.u-typeSubhead2 {
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  line-height: calc(28/16);
+}
+
+.u-typeSubhead1 {
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  line-height: calc(24/16);
+}
+
+.u-typeProse,
+.u-typeCopy {
+  font-size: 1rem;
+  line-height: calc(24/16),
+}
+
+.u-typeBody2 {
+  font-size: 0.875rem;
+  line-height: calc(24/14);
+}
+
+.u-typeBody1 {
+  font-size: 0.875rem;
+  line-height: calc(20/14);
+}
+
+.u-typeMenu {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+}
+.u-typeCaption {
+  font-size: 0.75rem;
+  line-height: calc(16/12);
+}
