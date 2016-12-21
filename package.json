@@ -18,6 +18,7 @@
     "postcss-font-magician": "1.5.x",
     "postcss-import": "9.x",
     "postcss-units": "1.x",
+    "roots": "^5.1.0",
     "roots-browserify": "0.5.x",
     "roots-yaml": "^0.0.4",
     "rucksack-css": "0.9.x",
