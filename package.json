@@ -20,7 +20,7 @@
     "postcss-units": "1.x",
     "roots-browserify": "0.5.x",
     "roots-yaml": "^0.0.4",
-    "rucksack-css": "^0.9.1",
+    "rucksack-css": "0.9.x",
     "rupture": "0.6.x",
     "stylus": "0.54.x",
     "suitcss": "2.x",
