@@ -28,7 +28,7 @@
   --color-twitter-blue: #55acee;
   --color-white: #fff;
 
-/* Primary grays */
+  /* Primary grays */
   --color-charcoal: #292f33;
   --color-dark-gray: #66757f;
   --color-medium-gray: #8899a6;
@@ -36,7 +36,8 @@
   --color-border-gray: #e1e8ed;
   --color-faint-gray: #f5f8fa;
 
-/* Primary blues */
+  /* Primary blues */
+
   --color-dark-blue: #226699;
   --color-deep-blue: #3b88c3;
   --color-light-blue: #88c9f9;
@@ -51,6 +52,7 @@
   --font-family: sans-serif;
   --line-height: 1.4;
 }
+
 /**
  * Spacing
  */
