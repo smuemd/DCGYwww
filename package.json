@@ -10,7 +10,7 @@
     "jade": "1.x",
     "js-pipeline": "0.2.x",
     "jstransformer-marked": "1.x",
-    "lost": "7.x",
+    "lost": "^8.0.0",
     "marked": "0.3.x",
     "normalize.css": "5.x",
     "postcss": "5.x",
