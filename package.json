@@ -16,7 +16,7 @@
     "postcss": "5.x",
     "postcss-cssnext": "2.9.x",
     "postcss-font-magician": "~1.6.0",
-    "postcss-import": "9.x",
+    "postcss-import": "^9.1.0",
     "postcss-units": "1.x",
     "roots": "^5.1.0",
     "roots-browserify": "0.5.x",
