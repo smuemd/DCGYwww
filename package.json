@@ -2,7 +2,7 @@
   "name": "dcgy-www",
   "description": "Discovergy website repo",
   "dependencies": {
-    "axis": "0.6.x",
+    "axis": "~1.0.0",
     "coffee-script": "1.x",
     "css-pipeline": "0.3.x",
     "cssnano": "^3.8.2",
