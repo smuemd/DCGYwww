@@ -14,7 +14,7 @@
     "marked": "0.3.x",
     "normalize.css": "5.x",
     "postcss": "5.x",
-    "postcss-cssnext": "2.9.x",
+    "postcss-cssnext": "~2.10.0",
     "postcss-font-magician": "~1.6.0",
     "postcss-import": "9.x",
     "postcss-units": "1.x",
