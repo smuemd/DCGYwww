@@ -12,7 +12,7 @@
     "jstransformer-marked": "1.x",
     "lost": "7.x",
     "marked": "0.3.x",
-    "normalize.css": "5.x",
+    "normalize.css": "^7.0.0",
     "postcss": "5.x",
     "postcss-cssnext": "2.9.x",
     "postcss-font-magician": "~1.6.0",
